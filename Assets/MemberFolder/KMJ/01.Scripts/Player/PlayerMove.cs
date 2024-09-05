@@ -13,6 +13,8 @@ public class PlayerMove : MonoBehaviour
     protected Rigidbody2D _rigid;
     [field: SerializeField] public float moveSpeed { get; set; }
 
+    public bool IsCanMove { get; set; } = true;
+
     private void Awake()
     {
         _rigid = GetComponent<Rigidbody2D>();
@@ -28,12 +30,13 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        SetMove(_playerinput.Move.x,_playerinput.Move.y);
+        SetMove(_playerinput.Move.x, _playerinput.Move.y);
     }
 
     private void FixedUpdate()
     {
-        _rigid.velocity = moveDir * moveSpeed;
+        if (IsCanMove)
+            _rigid.velocity = new Vector2(xMove * moveSpeed, yMove * moveSpeed);
     }
 
 }

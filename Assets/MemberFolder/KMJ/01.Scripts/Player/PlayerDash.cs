@@ -6,12 +6,9 @@ public class PlayerDash : MonoBehaviour
     [field:SerializeField] public float _dashSpeed { get; set; }
     [SerializeField] private InputReader _playerinput;
     [SerializeField] private PlayerMove _playerMove;
-    private Rigidbody2D _rigid;
 
     private void Awake()
     {
-        _rigid = GetComponent<Rigidbody2D>();
-
         _playerinput.DashKeyEvent += DashEventHander;
     }
     private void DashEventHander()
@@ -22,8 +19,12 @@ public class PlayerDash : MonoBehaviour
 
     private IEnumerator DashWait()
     {
-        _rigid.AddForce(_playerMove.moveDir * _dashSpeed, ForceMode2D.Impulse);
+        _playerMove.moveSpeed = _dashSpeed;
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(0.1f);
+
+        _playerMove.moveSpeed = 10;
+
+        yield return new WaitForSeconds(5f - 0.2f);
     }
 }
