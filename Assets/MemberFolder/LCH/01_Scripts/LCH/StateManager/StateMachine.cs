@@ -6,9 +6,9 @@ public class StateMachine<T> where T : Enum
 {
     public Dictionary<T, State<T>> stateDict = new Dictionary<T, State<T>>();
     public State<T> CurrentState { get; private set; }
-    private Agent _agent;
+    private EnemyAgent _agent;
 
-    public void InitInitialize(T state, Agent agent)
+    public void InitInitialize(T state, EnemyAgent agent)
     {
         _agent = agent;
         CurrentState = stateDict[state];
