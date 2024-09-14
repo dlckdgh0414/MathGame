@@ -13,13 +13,6 @@ public enum EnemyStateEnum
 }
 public class Enemy : EnemySetting
 {
-    public Vector2 dir;
-    public bool CanAttack = true;
-    public bool FirstAttack = true;
-    public bool Boom = false;
-    public float distance;
-    public bool FirstWake = true;
-    public bool fainting = false;
     public StateMachine<EnemyStateEnum> StateMachine { get; set; }
 
     public void GetHit()
