@@ -3,11 +3,7 @@ using UnityEngine;
 
 public enum EnemyStateEnum
 {
-    Idle,
-    Attack,
-    Hit,
-    Wait,
-    Dead
+   plus,Hit,Dead
 }
 public class Enemy : EnemySetting
 {
@@ -18,10 +14,10 @@ public class Enemy : EnemySetting
         StateMachine.ChangeState(EnemyStateEnum.Hit);
     }
 
-    //public override void SetDeadState()
-    //{
-    //    StateMachine.ChangeState(EnemyStateEnum.Dead);
-    //}
+    public override void SetDeadState()
+    {
+        StateMachine.ChangeState(EnemyStateEnum.Dead);
+    }
     public override void AnimationEndTrigger()
     {
         StateMachine.CurrentState.AnimationEndTrigger();
