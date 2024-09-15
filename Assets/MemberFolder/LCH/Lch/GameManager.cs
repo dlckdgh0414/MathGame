@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
      {
         useItem = false;
         yield return new WaitForSeconds(1f);
-        //공격 코드 적기
+        // 적 공격 코드 적기..
      }
 
     public void PlayerItemButton()
