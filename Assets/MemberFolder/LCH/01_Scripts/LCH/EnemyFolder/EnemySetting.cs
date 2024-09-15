@@ -14,6 +14,4 @@ public abstract class EnemySetting : EnemyAgent
         IsDie = value;
         CanStateChangeble = !value;
     }
-
-    public abstract void SetDeadState();
 }
