@@ -5,8 +5,6 @@ public enum EnemyStateEnum
 {
     Idle,
     Attack,
-    Chase,
-    Walk,
     Hit,
     Wait,
     Dead
