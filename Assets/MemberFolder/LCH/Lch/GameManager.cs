@@ -14,9 +14,50 @@ public class GameManager : MonoBehaviour
     public bool isDead;
     public bool useItem;
 
+    public event Action OnEnemyAttackStart;
+    public event Action OnEnemyAttackEnd;
+    public event Action OnBattleEnd;
+    public event Action OnItemUse;
+
+    public EnemyStatSOList enemyStatList;
+
+    private List<EnemyStatsSo> _enemyList = new List<EnemyStatsSo>();
+    private EnemyStatsSo _currentEnemy;
+
+    private void OnEnable()
+    {
+        OnEnemyAttackStart += HandleAttackStart;
+        OnEnemyAttackEnd += HandlAttackEnd;
+        OnBattleEnd += HandleBattleEnd;
+    }
+
+    private void HandleBattleEnd()
+    {
+        Debug.Log("전투 종료");
+    }
+
+    private void HandlAttackEnd()
+    {
+        state = TrunState.playerTurn;
+        Debug.Log("플레이어 턴");
+    }
+
+    private void HandleAttackStart()
+    {
+        state = TrunState.enemyTurn;
+        Debug.Log("적 턴");
+    }
+
     private void Awake()
     {
+        foreach (EnemyStatsSo enemy in enemyStatList.enemyStatList)
+        {
+            _enemyList.Add(enemy);
+        }
+        _currentEnemy = _enemyList[0];
+
         state = TrunState.start;
+        StartCoroutine(EnemyAttackRoutine());
         BattleStart();
     }
 
@@ -41,21 +82,13 @@ public class GameManager : MonoBehaviour
         if (isDead)
         {
             state = TrunState.win;
-            EndBattle();
+            OnBattleEnd?.Invoke();
         }
         else
         {
-            state = TrunState.enemyTurn;
-            StartCoroutine(EnemyTurn());
+            OnEnemyAttackStart?.Invoke();
         }
     }
-
-     IEnumerator EnemyTurn()
-     {
-        useItem = false;
-        yield return new WaitForSeconds(1f);
-        // 적 공격 코드 적기..
-     }
 
     public void PlayerItemButton()
     {
@@ -71,13 +104,16 @@ public class GameManager : MonoBehaviour
     {
         //아이템 사용 코드 적기
 
-        if(useItem)
-         StartCoroutine(EnemyTurn());
+        if (useItem)
+        {
+            OnItemUse?.Invoke();
+            OnEnemyAttackStart?.Invoke();
+        }
     }
 
-    private void EndBattle()
+    private IEnumerator EnemyAttackRoutine()
     {
-        Debug.Log("전투 종료");
+        yield return new WaitForSeconds(_currentEnemy.AttackDuration);
+        OnEnemyAttackEnd?.Invoke();
     }
-
 }
