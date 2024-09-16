@@ -812,17 +812,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5596101756257455398, guid: cb7a88cbee8add647b9503fec882d981, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 5132779049971381426, guid: cb7a88cbee8add647b9503fec882d981, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132779049971381426, guid: cb7a88cbee8add647b9503fec882d981, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5596101756257455398, guid: cb7a88cbee8add647b9503fec882d981, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596101756257455398, guid: cb7a88cbee8add647b9503fec882d981, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6082724305656925600, guid: cb7a88cbee8add647b9503fec882d981, type: 3}
       propertyPath: m_Name
       value: MathProblem0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082724305656925600, guid: cb7a88cbee8add647b9503fec882d981, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

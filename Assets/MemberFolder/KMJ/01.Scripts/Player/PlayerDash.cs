@@ -7,7 +7,9 @@ public class PlayerDash : MonoBehaviour
     [SerializeField] private InputReader _playerinput;
     [SerializeField] private PlayerMove _playerMove;
 
-    private void Awake()
+    public bool isDash;
+
+    private void Start()
     {
         _playerinput.DashKeyEvent += DashEventHander;
     }
