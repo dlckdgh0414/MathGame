@@ -16,7 +16,7 @@ public class Enemy : EnemySetting
 
     public override void SetDeadState()
     {
-        StateMachine.ChangeState(EnemyStateEnum.Dead);
+       StateMachine.ChangeState(EnemyStateEnum.Dead);
     }
     public override void AnimationEndTrigger()
     {
