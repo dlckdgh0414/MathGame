@@ -6,5 +6,5 @@ using UnityEngine;
 [ExcelAsset]
 public class ProblemFile : ScriptableObject
 {
-	public List<ProblemFilesDB> Problems; // Replace 'EntityType' to an actual type that is serializable.
+	public List<ProbelmDetail> Problems; // Replace 'EntityType' to an actual type that is serializable.
 }
