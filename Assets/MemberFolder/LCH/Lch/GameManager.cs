@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public bool isDead;
     public bool useItem;
 
-    public UnityEvent OnEnemyAttackStart;
+    public event Action OnEnemyAttackStart;
     public event Action OnEnemyAttackEnd;
     public event Action OnBattleEnd;
     public event Action OnItemUse;
@@ -25,8 +25,11 @@ public class GameManager : MonoBehaviour
     private List<EnemyStatsSo> _enemyList = new List<EnemyStatsSo>();
     private EnemyStatsSo _currentEnemy;
 
+    private Enemy _enemy;
+
     private void OnEnable()
     {
+        OnEnemyAttackStart += HandleAttackStart;
         OnEnemyAttackEnd += HandlAttackEnd;
         OnBattleEnd += HandleBattleEnd;
     }
@@ -42,6 +45,39 @@ public class GameManager : MonoBehaviour
         Debug.Log("플레이어 턴");
     }
 
+    public void HandleAttackStart()
+    {
+        switch (_enemy._enemystats.EnemyName)
+        {
+            case EnemyStateEnum.plus:
+                Debug.Log("Enemy State: plus");
+                EnemyTrun();
+                break;
+            case EnemyStateEnum.Minusus:
+                Debug.Log("Enemy State: Minusus");
+                EnemyTrun();
+                break;
+            case EnemyStateEnum.Multiplication:
+                Debug.Log("Enemy State: Multiplication");
+                EnemyTrun();
+                break;
+            case EnemyStateEnum.Division:
+                Debug.Log("Enemy State: Division");
+                EnemyTrun();
+                break;
+            default:
+                Debug.LogWarning("Unknown Enemy State");
+                break;
+        }
+    }
+
+    private void EnemyTrun()
+    {
+        state = TrunState.enemyTurn;
+        _enemy.EnemyAttackEvent?.Invoke();
+        StartCoroutine(EnemyAttackRoutine());
+    }
+
     private void Awake()
     {
         foreach (EnemyStatsSo enemy in enemyStatList.enemyStatList)
@@ -51,8 +87,8 @@ public class GameManager : MonoBehaviour
         _currentEnemy = _enemyList[0];
 
         state = TrunState.start;
-        StartCoroutine(EnemyAttackRoutine());
         BattleStart();
+        _enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
     }
 
     private void BattleStart()
@@ -80,7 +116,6 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            state = TrunState.enemyTurn;
             OnEnemyAttackStart?.Invoke();
         }
     }
@@ -95,7 +130,7 @@ public class GameManager : MonoBehaviour
         UsingItem();
     }
 
-    private void UsingItem()
+     public void UsingItem()
     {
         //아이템 사용 코드 적기
 
