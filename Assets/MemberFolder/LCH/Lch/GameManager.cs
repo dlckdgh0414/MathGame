@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class GameManager : MonoBehaviour
     public bool isDead;
     public bool useItem;
 
-    public event Action OnEnemyAttackStart;
+    public UnityEvent OnEnemyAttackStart;
     public event Action OnEnemyAttackEnd;
     public event Action OnBattleEnd;
     public event Action OnItemUse;
@@ -26,7 +27,6 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        OnEnemyAttackStart += HandleAttackStart;
         OnEnemyAttackEnd += HandlAttackEnd;
         OnBattleEnd += HandleBattleEnd;
     }
@@ -40,12 +40,6 @@ public class GameManager : MonoBehaviour
     {
         state = TrunState.playerTurn;
         Debug.Log("플레이어 턴");
-    }
-
-    private void HandleAttackStart()
-    {
-        state = TrunState.enemyTurn;
-        Debug.Log("적 턴");
     }
 
     private void Awake()
