@@ -10,7 +10,7 @@ public class Enemy : EnemySetting
 {
     public StateMachine<EnemyStateEnum> StateMachine { get; set; }
 
-    [SerializeField] private EnemyStatsSo _enemystats;
+    [field:SerializeField] public EnemyStatsSo _enemystats;
 
     public UnityEvent EnemyAttackEvent; //Enemy에 맞는 공격 넣기
 

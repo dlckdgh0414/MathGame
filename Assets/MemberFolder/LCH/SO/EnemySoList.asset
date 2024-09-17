@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77d9e6160de942545ac7e2c706236c49, type: 3}
-  m_Name: Plus
+  m_Script: {fileID: 11500000, guid: e2fe0edb305eb814b9e8aecab59f2fab, type: 3}
+  m_Name: EnemySoList
   m_EditorClassIdentifier: 
-  EnemyName: 0
-  Hp: 20
-  AttackPower: 5
-  AttackDuration: 8.6
+  enemyStatList:
+  - {fileID: 11400000, guid: 1de5a79173a35ba499f271e8f32ae936, type: 2}
