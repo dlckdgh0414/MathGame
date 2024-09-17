@@ -10,7 +10,7 @@ public class EnemyAttack : MonoBehaviour
     private void Awake()
     {
         _playerHealth = GameObject.Find("Player").GetComponent<Health>();
-        _enemy = GetComponentInParent<EnemyStatsSo>();
+        _enemy = GameObject.FindWithTag("Enemy").GetComponent<EnemyStatsSo>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
