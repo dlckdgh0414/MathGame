@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a5e33334b2b51c4dac894aa20147137, type: 3}
   m_Name: ProblemFile
   m_EditorClassIdentifier: 
-  Problems: []
+  Problems:
+  - Problem: "\uBB38\uC81C 1\uBC88"
+    Choice1: x+1
+    Choice2: x+2
+    Choice3: x+3
+    Choice4: x+4
+    ResultNumber: 3
