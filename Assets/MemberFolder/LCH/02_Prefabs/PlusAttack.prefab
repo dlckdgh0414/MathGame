@@ -153,6 +153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7009267587564822237}
   - component: {fileID: 5108372062295179506}
+  - component: {fileID: 60874149367373923}
   m_Layer: 0
   m_Name: PlusAttack
   m_TagString: Untagged
@@ -190,6 +191,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 5
+--- !u!114 &60874149367373923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3751716701749566697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19cdc630ff7e9ca43a0a914fb64a5175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolName: PlusAttack
 --- !u!1 &4290840674989499991
 GameObject:
   m_ObjectHideFlags: 0
