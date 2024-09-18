@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 2389589733265216854}
   - component: {fileID: 2105228901241333563}
   - component: {fileID: 8078661390184782795}
+  - component: {fileID: 5486723750929347327}
   m_Layer: 5
   m_Name: mathAnswer4
   m_TagString: Untagged
@@ -329,7 +330,46 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2105228901241333563}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5486723750929347327}
+        m_TargetAssemblyTypeName: SelectMathButton, Assembly-CSharp
+        m_MethodName: SelectCollect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5486723750929347327}
+        m_TargetAssemblyTypeName: SelectMathButton, Assembly-CSharp
+        m_MethodName: SelectFalse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5486723750929347327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908481959603056069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8712f493d046e045850a5b8d7845149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeSlider: {fileID: 5132779049971381426}
+  _mathProblem: {fileID: 6082724305656925600}
+  <_isGuess>k__BackingField: 0
 --- !u!1 &1158358773169231184
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,8 +537,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0.6173706, y: 0}
-  m_SizeDelta: {x: -8.76526, y: 0}
+  m_AnchoredPosition: {x: -1.8826, y: 0}
+  m_SizeDelta: {x: -3.7653, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4853710787443873744
 GameObject:
@@ -534,8 +574,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -4.099991, y: 0}
-  m_SizeDelta: {x: 0.33427, y: 0}
+  m_AnchoredPosition: {x: -1.9664, y: 0}
+  m_SizeDelta: {x: -3.9329, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4732690181148579607
 CanvasRenderer:
@@ -587,6 +627,8 @@ GameObject:
   - component: {fileID: 4577058870974614871}
   - component: {fileID: 1478286887707813281}
   - component: {fileID: 701382863285092138}
+  - component: {fileID: 3409334769159990882}
+  - component: {fileID: 4527325408574231538}
   m_Layer: 5
   m_Name: MathProblem0
   m_TagString: Untagged
@@ -683,6 +725,44 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3409334769159990882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6082724305656925600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 638395753d21c034dbfb8a7fa998e4c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeSlider: {fileID: 5132779049971381426}
+  _timeSlierParent: {fileID: 6082724305656925600}
+--- !u!114 &4527325408574231538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6082724305656925600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53c1db85c88860e4383c198effd4d4b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  problemfile: {fileID: 11400000, guid: 4b08d9dcfaf06f04ebd3103a77aaa388, type: 2}
+  ControllButton:
+  - {fileID: 9115975699737334384}
+  - {fileID: 7483196730882408254}
+  - {fileID: 8038689674784646571}
+  - {fileID: 908481959603056069}
+  ProblemText:
+  - {fileID: 8211145311417906430}
+  - {fileID: 7525745401503483149}
+  - {fileID: 158880293563315218}
+  - {fileID: 2827017581523696683}
+  problemName: {fileID: 5419093332639110987}
 --- !u!1 &6914241831225201084
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,6 +984,7 @@ GameObject:
   - component: {fileID: 2746437565877448792}
   - component: {fileID: 7433150487656357079}
   - component: {fileID: 2802683706621722191}
+  - component: {fileID: 4606502050906694777}
   m_Layer: 5
   m_Name: mathAnswer2
   m_TagString: Untagged
@@ -1012,7 +1093,46 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7433150487656357079}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4606502050906694777}
+        m_TargetAssemblyTypeName: SelectMathButton, Assembly-CSharp
+        m_MethodName: SelectCollect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4606502050906694777}
+        m_TargetAssemblyTypeName: SelectMathButton, Assembly-CSharp
+        m_MethodName: SelectFalse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4606502050906694777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7483196730882408254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8712f493d046e045850a5b8d7845149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeSlider: {fileID: 5132779049971381426}
+  _mathProblem: {fileID: 6082724305656925600}
+  <_isGuess>k__BackingField: 0
 --- !u!1 &7801972390588182331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,15 +1210,15 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 5596101756257455398}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 20
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1248,6 +1368,7 @@ GameObject:
   - component: {fileID: 256226547663421335}
   - component: {fileID: 8706772115197715765}
   - component: {fileID: 5420316475514861546}
+  - component: {fileID: 592204365619767488}
   m_Layer: 5
   m_Name: mathAnswer3
   m_TagString: Untagged
@@ -1356,7 +1477,46 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8706772115197715765}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 592204365619767488}
+        m_TargetAssemblyTypeName: SelectMathButton, Assembly-CSharp
+        m_MethodName: SelectCollect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 592204365619767488}
+        m_TargetAssemblyTypeName: SelectMathButton, Assembly-CSharp
+        m_MethodName: SelectFalse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &592204365619767488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8038689674784646571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8712f493d046e045850a5b8d7845149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeSlider: {fileID: 5132779049971381426}
+  _mathProblem: {fileID: 6082724305656925600}
+  <_isGuess>k__BackingField: 0
 --- !u!1 &8143797380664339573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,6 +1663,7 @@ GameObject:
   - component: {fileID: 6891652300957623447}
   - component: {fileID: 8360023674019739631}
   - component: {fileID: 296217017081852486}
+  - component: {fileID: 4956671175355178153}
   m_Layer: 5
   m_Name: mathAnswer1
   m_TagString: Untagged
@@ -1611,4 +1772,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8360023674019739631}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4956671175355178153}
+        m_TargetAssemblyTypeName: SelectMathButton, Assembly-CSharp
+        m_MethodName: SelectCollect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4956671175355178153}
+        m_TargetAssemblyTypeName: SelectMathButton, Assembly-CSharp
+        m_MethodName: SelectFalse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4956671175355178153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9115975699737334384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8712f493d046e045850a5b8d7845149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeSlider: {fileID: 5132779049971381426}
+  _mathProblem: {fileID: 6082724305656925600}
+  <_isGuess>k__BackingField: 0
