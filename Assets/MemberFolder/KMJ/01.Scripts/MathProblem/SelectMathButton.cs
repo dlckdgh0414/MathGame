@@ -34,6 +34,7 @@ public class SelectMathButton : MonoBehaviour
             MathProblem.ProblemNumber += 1;
             _damage = 0;
             _timeSlider.value = 20;
+            GameManager._isFinish = true;
             _mathProblem.SetActive(false);
         }
     }
@@ -43,6 +44,7 @@ public class SelectMathButton : MonoBehaviour
         if (_isGuess == false)
         {
             _timeSlider.value = 20;
+            GameManager._isFinish = true;
             _mathProblem.SetActive(false);
         }
     }

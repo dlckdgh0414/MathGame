@@ -22,7 +22,7 @@ public class MathProblem : MonoBehaviour
     }
     private void Awake()
     {
-        
+        gameObject.SetActive(false);
     }
     private void Start()
     {
