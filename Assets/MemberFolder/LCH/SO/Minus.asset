@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec581ca6360aea04d8afd6168e2be7f6, type: 3}
-  m_Name: PoolList
+  m_Script: {fileID: 11500000, guid: 77d9e6160de942545ac7e2c706236c49, type: 3}
+  m_Name: Minus
   m_EditorClassIdentifier: 
-  list:
-  - {fileID: 11400000, guid: 1686d197f1191eb4aa0dd942941bddda, type: 2}
-  - {fileID: 11400000, guid: b7bfcf0d6bc1ffd45b93e288f8aec97e, type: 2}
-  a: 0
+  EnemyName: 1
+  Hp: 0
+  AttackPower: 0
+  AttackDuration: 0
