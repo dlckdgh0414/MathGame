@@ -19,3 +19,9 @@ MonoBehaviour:
     Choice3: x+3
     Choice4: x+4
     ResultNumber: 3
+  - Problem: "\uBB38\uC81C 2\uBC88"
+    Choice1: y+1
+    Choice2: y+1
+    Choice3: y+1
+    Choice4: y+1
+    ResultNumber: 1
