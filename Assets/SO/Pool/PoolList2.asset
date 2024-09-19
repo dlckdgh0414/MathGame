@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec581ca6360aea04d8afd6168e2be7f6, type: 3}
-  m_Name: PoolList
+  m_Name: PoolList2
   m_EditorClassIdentifier: 
   list:
   - {fileID: 11400000, guid: 1686d197f1191eb4aa0dd942941bddda, type: 2}
-  - {fileID: 11400000, guid: 33582a2e7b3f52b46ad01f251a49c51b, type: 2}
   - {fileID: 11400000, guid: 18b4fb30e590fc748bdaf1fb549f9eb0, type: 2}
+  - {fileID: 11400000, guid: 33582a2e7b3f52b46ad01f251a49c51b, type: 2}
   a: 0

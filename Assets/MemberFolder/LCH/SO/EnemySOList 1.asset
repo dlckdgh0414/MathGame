@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77d9e6160de942545ac7e2c706236c49, type: 3}
-  m_Name: Multiplication
+  m_Script: {fileID: 11500000, guid: e2fe0edb305eb814b9e8aecab59f2fab, type: 3}
+  m_Name: EnemySOList 1
   m_EditorClassIdentifier: 
-  EnemyName: 2
-  Hp: 36
-  AttackPower: 9
-  AttackDuration: 1
+  enemyStatList:
+  - {fileID: 11400000, guid: 1e77bb37d12bebd4f9477f97dcb18115, type: 2}
+  - {fileID: 11400000, guid: 1de5a79173a35ba499f271e8f32ae936, type: 2}

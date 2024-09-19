@@ -20,10 +20,7 @@ public class MathProblem : MonoBehaviour
         _randomInt = Random.Range(0, 4);
         Debug.Log(_randomInt);
     }
-    private void Awake()
-    {
-        gameObject.SetActive(false);
-    }
+
     private void Start()
     {
 
