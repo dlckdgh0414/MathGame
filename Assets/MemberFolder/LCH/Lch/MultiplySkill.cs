@@ -23,6 +23,7 @@ public class MultiplySkill : MonoBehaviour
             {
                 enemy.gameObject.transform.position = new Vector2(rangX,rangY);
             }
+
             Count++;
         }
     }
