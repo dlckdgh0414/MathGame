@@ -12,7 +12,7 @@ public class Lazer : MonoBehaviour
 
     public GameObject player;
 
-    public void ShootLazer(Vector3[] pos, Quaternion[] rot)
+    public void ShootLazer(Transform[] pos, Quaternion[] rot)
     {
         for(int i = 0; i < pos.Length; i++)
         {
@@ -22,7 +22,7 @@ public class Lazer : MonoBehaviour
 
             if (lazer != null)
             {
-                lazer.gameObject.transform.position = pos[i];
+                lazer.gameObject.transform.position = pos[i].position;
                 lazer.transform.rotation = rot[i];
                 lazer.transform.localScale = new Vector3(0, lazer.transform.localScale.y);
             }
