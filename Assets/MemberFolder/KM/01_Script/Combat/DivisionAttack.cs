@@ -50,6 +50,6 @@ public class DivisionAttack : MonoBehaviour
         //enemy.transform.DOLocalMoveY(_pushZone[rand].localScale.y + 0.5f, 0.25f);
 
         yield return new WaitForSeconds(1f);
-        lazer.ShootLazer(enemy.gameObject.transform.position, _pushZone[rand].localRotation);
+        lazer.ShootLazer(enemy.gameObject.transform, _pushZone[rand].rotation);
     }
 }
