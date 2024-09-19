@@ -23,6 +23,7 @@ public class MultipLaser : MonoBehaviour
     {
         while (true)
         {
+            _lazerAttack.ShotExpolmeArr(_lazerPos, _shotRot);
             yield return new WaitForSeconds(1f);
             _lazerAttack.ShootLazerArr(_lazerPos,_shotRot);
         }
