@@ -11,9 +11,18 @@ public class MultiplySkill : MonoBehaviour
     [SerializeField] private int Count = 0;
 
     public Pooling enemy;
+
+    private Enemy _enmyOwer;
+    private int _popCount = 2;
+
+    private void Awake()
+    {
+        _enmyOwer = GetComponentInParent<Enemy>();
+    }
+
     public void Pase1()
     {
-        if(Count <= 2)
+       while(Count < _popCount)
         {
             float rangY = Random.Range(minY, maxY);
             float rangX = Random.Range(minX, maxX);
@@ -22,6 +31,11 @@ public class MultiplySkill : MonoBehaviour
             if (enemy != null)
             {
                 enemy.gameObject.transform.position = new Vector2(rangX,rangY);
+            }
+
+            if(_enmyOwer.HelathCompo.Hp <= 13)
+            {
+                _popCount += 1;
             }
 
             Count++;
