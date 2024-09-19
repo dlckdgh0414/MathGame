@@ -24,7 +24,7 @@ public class MultipLaser : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            _lazerAttack.ShootLazer(_lazerPos,_shotRot);
+            _lazerAttack.ShootLazerArr(_lazerPos,_shotRot);
         }
     }
 }
