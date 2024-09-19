@@ -7488,37 +7488,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142385760}
   m_CullTransparentMesh: 1
---- !u!1 &1159553103
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1159553104}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1159553104
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1159553103}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.43, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1177117591
 GameObject:
   m_ObjectHideFlags: 0
@@ -8679,9 +8648,10 @@ GameObject:
   - component: {fileID: 1502948304}
   - component: {fileID: 1502948303}
   - component: {fileID: 1502948302}
+  - component: {fileID: 1502948305}
   m_Layer: 0
   m_Name: Multiplication
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8701,7 +8671,7 @@ MonoBehaviour:
   FinalDeadEvent:
     m_PersistentCalls:
       m_Calls: []
-  _enemystats: {fileID: 0}
+  _enemystats: {fileID: 11400000, guid: 1e77bb37d12bebd4f9477f97dcb18115, type: 2}
   EnemyAttackEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -8769,9 +8739,23 @@ Transform:
   m_LocalPosition: {x: 0.05, y: 2.89, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1665456902}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1502948305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502948301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8446193a1d5bc49af459ed6548ac65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Hp>k__BackingField: 0
 --- !u!1 &1579282701
 GameObject:
   m_ObjectHideFlags: 0
@@ -8997,6 +8981,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622018876}
   m_CullTransparentMesh: 1
+--- !u!1 &1665456901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1665456902}
+  - component: {fileID: 1665456903}
+  m_Layer: 0
+  m_Name: MultiplicationSkil
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1665456902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665456901}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1502948304}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1665456903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665456901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d942f03f6b9fd6a40aaac09dc55b9b5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minY: 14
+  maxY: -2.55
+  minX: -3.99
+  maxX: 3.95
+  Count: 2
+  enemy: {fileID: 0}
 --- !u!1 &1764848330
 GameObject:
   m_ObjectHideFlags: 0
@@ -9287,7 +9321,7 @@ MonoBehaviour:
   state: 0
   isDead: 0
   useItem: 0
-  enemyStatList: {fileID: 11400000, guid: 310a1d1ee98033645b303996c0822b0c, type: 2}
+  enemyStatList: {fileID: 11400000, guid: 2113bd53b469402468bae527c77b28b3, type: 2}
 --- !u!4 &1809879793
 Transform:
   m_ObjectHideFlags: 0
@@ -10077,4 +10111,3 @@ SceneRoots:
   - {fileID: 1809879793}
   - {fileID: 621611187}
   - {fileID: 1502948304}
-  - {fileID: 1159553104}

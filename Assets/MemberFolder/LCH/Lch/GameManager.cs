@@ -93,6 +93,11 @@ public class GameManager : MonoBehaviour
         _enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
     }
 
+    private void Start()
+    {
+        _problemUI.SetActive(false);
+    }
+
     private void BattleStart()
     {
         state = TrunState.playerTurn;

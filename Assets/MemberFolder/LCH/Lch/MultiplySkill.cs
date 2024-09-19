@@ -11,21 +11,19 @@ public class MultiplySkill : MonoBehaviour
     [SerializeField] private int Count = 0;
 
     public Pooling enemy;
-
-    private void Start()
-    { 
-
-    }
-
     public void Pase1()
     {
-        float rangY = Random.Range(minY, maxY);
-        float rangX = Random.Range(minX, maxX);
-
-        enemy = PoolManager.Instance.Pop("MultiplyAttack") as Pooling;
-        if (enemy != null)
+        if(Count <= 2)
         {
-            enemy.gameObject.transform.position = new Vector2();
+            float rangY = Random.Range(minY, maxY);
+            float rangX = Random.Range(minX, maxX);
+
+            enemy = PoolManager.Instance.Pop("MultiplicationAttack") as Pooling;
+            if (enemy != null)
+            {
+                enemy.gameObject.transform.position = new Vector2(rangX,rangY);
+            }
+            Count++;
         }
     }
 }
