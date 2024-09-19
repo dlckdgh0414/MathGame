@@ -12,12 +12,6 @@ public class Lazer : MonoBehaviour
 
     public GameObject player;
 
-    public void Shoot()
-    {
-        int rand = Random.Range(0, 360);
-        ShootLazer(player.transform.position, Quaternion.Euler(0, 0, rand));
-    }
-
     public void ShootLazer(Vector3 pos, Quaternion rot)
     {
         lazer = PoolManager.Instance.Pop("Lazer") as Pooling;
