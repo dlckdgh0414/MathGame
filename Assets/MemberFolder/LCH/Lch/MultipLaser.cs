@@ -9,8 +9,6 @@ public class MultipLaser : MonoBehaviour
     [SerializeField]private Transform[] _lazerPos;
     [SerializeField] private Quaternion[] _shotRot;
 
-    Pooling _enmy;
-
     private void Awake()
     {
         _lazerAttack = GetComponent<Lazer>();
@@ -25,12 +23,8 @@ public class MultipLaser : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.5f);
-            _lazerAttack.ShootLazer(_lazerPos,_shotRot);
-            yield return new WaitForSeconds(1.2f);
-            Ipoolable item = GetComponent<Pooling>().GetComponent<Ipoolable>();
-            PoolManager.Instance.Push(item);
-
+            yield return new WaitForSeconds(1f);
+            _lazerAttack.ShootLazerArr(_lazerPos,_shotRot);
         }
     }
 }
