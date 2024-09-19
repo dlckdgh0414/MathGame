@@ -24,8 +24,9 @@ public class GameManager : MonoBehaviour
 
     private List<EnemyStatsSo> _enemyList = new List<EnemyStatsSo>();
     private EnemyStatsSo _currentEnemy;
-
+    private GameObject _problemUI;
     private Enemy _enemy;
+    public static bool _isFinish;
 
     private void OnEnable()
     {
@@ -80,6 +81,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        _problemUI = GameObject.Find("MathProblem0");
         foreach (EnemyStatsSo enemy in enemyStatList.enemyStatList)
         {
             _enemyList.Add(enemy);
@@ -89,6 +91,11 @@ public class GameManager : MonoBehaviour
         state = TrunState.start;
         BattleStart();
         _enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
+    }
+
+    private void Start()
+    {
+        _problemUI.SetActive(false);
     }
 
     private void BattleStart()
@@ -108,13 +115,16 @@ public class GameManager : MonoBehaviour
 
      public void PlayerAttack()
     {
+        _problemUI.SetActive(true);
+
+        _isFinish = false;
         //공격 스킬 데미지 등 코드 작성
         if (isDead)
         {
             state = TrunState.win;
             OnBattleEnd?.Invoke();
         }
-        else
+        else if(_isFinish == true)
         {
             OnEnemyAttackStart?.Invoke();
         }
