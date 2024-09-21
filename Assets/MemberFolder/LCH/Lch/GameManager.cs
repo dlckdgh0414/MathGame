@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
 	public enum TrunState
     {
         start,playerTurn,enemyTurn, win
@@ -26,7 +28,8 @@ public class GameManager : MonoBehaviour
     private EnemyStatsSo _currentEnemy;
     private GameObject _problemUI;
     private Enemy _enemy;
-    public static bool _isFinish;
+    public  bool _isFinish;
+    private bool _isEnemyTurn;
 
     private void OnEnable()
     {
@@ -48,6 +51,7 @@ public class GameManager : MonoBehaviour
 
     public void HandleAttackStart()
     {
+        Debug.Log(_enemy._enemystats.EnemyName);
         switch (_enemy._enemystats.EnemyName)
         {
             case EnemyStateEnum.plus:
@@ -81,6 +85,15 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         _problemUI = GameObject.Find("MathProblem0");
         foreach (EnemyStatsSo enemy in enemyStatList.enemyStatList)
         {
@@ -103,28 +116,31 @@ public class GameManager : MonoBehaviour
         state = TrunState.playerTurn;
     }
 
-    public void PlayerAttackButton()
+    public void PlayerAttackButton() //공격버튼 클릭
     {
-        if(state != TrunState.playerTurn)
+        if(state != TrunState.playerTurn) // 플레이어 턴이 아닐때는 눌려도 반응하지 않게 하기
         {
             return;
         }
-        
-        PlayerAttack();
+        _problemUI.SetActive(true);//문제 UI띄우기
     }
 
-     public void PlayerAttack()
+    public void PlayerAttackCheck()
     {
-        _problemUI.SetActive(true);
+        //if (_isFinish) //이거 true가 너무 잘되요..
+        {
+            PlayerAttack(); //공격한뒤 EnemyTrune으로 넘기는 메서드
+        }
+    }
 
-        _isFinish = false;
-        //공격 스킬 데미지 등 코드 작성
+    public void PlayerAttack()
+    {
         if (isDead)
         {
             state = TrunState.win;
             OnBattleEnd?.Invoke();
         }
-        else if(_isFinish == true)
+        else
         {
             OnEnemyAttackStart?.Invoke();
         }
@@ -156,4 +172,10 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(_currentEnemy.AttackDuration);
         OnEnemyAttackEnd?.Invoke();
     }
+
+    //private void Update()
+    //{
+    //    if ()
+    //    PlayerAttackCheck();
+    //}
 }

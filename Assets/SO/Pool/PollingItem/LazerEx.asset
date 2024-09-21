@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfe366c365232a04c8dd66f4d2896519, type: 3}
-  m_Name: LazerEx
+  m_Name: Lazerex
   m_EditorClassIdentifier: 
-  poolName: Lazerex
-  prefab: {fileID: 4527322810794509795, guid: 1b746a7daf223c540b9cddf83bd5a317, type: 3}
-  count: 10
+  poolName: 
+  prefab: {fileID: 0}
+  count: 0
