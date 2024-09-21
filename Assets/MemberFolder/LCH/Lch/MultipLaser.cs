@@ -14,21 +14,33 @@ public class MultipLaser : MonoBehaviour
         _lazerAttack = GetComponent<Lazer>();
     }
 
+    private void Start()
+    {
+        Debug.Log("M");
+        //StartCoroutine(LaserShot());
+    }
+
     private void OnEnable()
     {
+        Debug.Log("M2");
         StartCoroutine(LaserShot());
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("MD");
     }
 
     private IEnumerator LaserShot()
     {
-        //_lazerAttack.ShotExpolmeArr(_lazerPos, _shotRot);
-        //yield return new WaitForSeconds(1f);
-        while (true)
-        {
-            _lazerAttack.ShootLazerArr(_lazerPos, _shotRot);
-            yield return new WaitForSeconds(0.3F);
-            Ipoolable item = GetComponent<Ipoolable>();
-            PoolManager.Instance.Push(item);
-        }
+        yield return new WaitUntil(() => PoolManager.Instance.IsInitEnd);
+        Debug.Log("Laser");
+        _lazerAttack.ShotExpolmeArr(_lazerPos, _shotRot);
+        yield return new WaitForSeconds(1f);
+        _lazerAttack.ShootLazerArr(_lazerPos, _shotRot);
+        yield return new WaitForSeconds(0.5f);
+         Ipoolable item = GetComponent<Ipoolable>();
+         PoolManager.Instance.Push(item);
+            
     }
 }

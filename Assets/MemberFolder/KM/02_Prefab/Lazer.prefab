@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -2196950021195149791}
   - component: {fileID: 5857127562646011377}
   m_Layer: 0
-  m_Name: LazerAttack
+  m_Name: Lazer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19cdc630ff7e9ca43a0a914fb64a5175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolName: LazerAttack
+  poolName: Lazer
 --- !u!114 &5857127562646011377
 MonoBehaviour:
   m_ObjectHideFlags: 0

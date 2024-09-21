@@ -9,14 +9,17 @@ public class PoolManager : MonoSingleton<PoolManager>
     [SerializeField] private PoolListSO _poolList;
 
     private Dictionary<string, Pool> _pools;
+    public bool IsInitEnd { get; private set; }
 
     private void Awake()
     {
+        Debug.Log("P");
         _pools = new Dictionary<string, Pool>();
         foreach (PoolItemSO so in _poolList.list)
         {
             CretePool(so);
         }
+        IsInitEnd = true;
     }
 
     private void CretePool(PoolItemSO so)
@@ -30,6 +33,7 @@ public class PoolManager : MonoSingleton<PoolManager>
 
         Pool pool = new Pool(poolable, transform, so.count);
         _pools.Add(poolable.PoolName, pool);
+        Debug.Log($"{poolable.PoolName} : {pool}");
     }
 
     public Ipoolable Pop(string itemName)

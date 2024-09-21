@@ -122,7 +122,10 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-        _problemUI.SetActive(true);//¹®Á¦ UI¶ç¿ì±â
+        else
+        {
+            _problemUI.SetActive(true);
+        }
     }
 
     public void PlayerAttackCheck()
