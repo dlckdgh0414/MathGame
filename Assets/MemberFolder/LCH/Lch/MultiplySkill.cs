@@ -40,5 +40,7 @@ public class MultiplySkill : MonoBehaviour
 
             Count++;
         }
+
+        Count = 0;
     }
 }

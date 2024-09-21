@@ -34,8 +34,10 @@ public class SelectMathButton : MonoBehaviour
             MathProblem.ProblemNumber += 1;
             _damage = 0;
             _timeSlider.value = 20;
-            GameManager._isFinish = true;
+            GameManager.Instance._isFinish = true;
+            Debug.Log("Finished");
             _mathProblem.SetActive(false);
+            GameManager.Instance.PlayerAttackCheck();
         }
     }
 
@@ -44,8 +46,10 @@ public class SelectMathButton : MonoBehaviour
         if (_isGuess == false)
         {
             _timeSlider.value = 20;
-            GameManager._isFinish = true;
+            GameManager.Instance._isFinish = true;
+            Debug.Log("Finished (SelectFalse)");
             _mathProblem.SetActive(false);
+            GameManager.Instance.PlayerAttackCheck();
         }
     }
 }

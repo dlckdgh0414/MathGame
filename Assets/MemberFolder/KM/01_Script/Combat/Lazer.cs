@@ -14,52 +14,52 @@ public class Lazer : MonoBehaviour
                  
     public GameObject player;   
     
-    public void ShotExpolmeArr(Transform[] pos,Quaternion[] rot)
-    {
-        for (int i = 0; i < pos.Length; i++)
-        {
-            lazerex = PoolManager.Instance.Pop("Lazerex") as Pooling;
-            _lazerSpriteex = lazerex.GetComponent<SpriteRenderer>();
-            seq = DOTween.Sequence();
+    //public void ShotExpolmeArr(Transform[] pos,Quaternion[] rot)
+    //{
+    //    for (int i = 0; i < pos.Length; i++)
+    //    {
+    //        lazerex = PoolManager.Instance.Pop("Lazerex") as Pooling;
+    //        _lazerSpriteex = lazerex.GetComponent<SpriteRenderer>();
+    //        seq = DOTween.Sequence();
 
-            if (lazerex != null)
-            {
-                lazerex.gameObject.transform.position = pos[i].position;
-                lazerex.transform.rotation = rot[i];
-                lazerex.transform.localScale = new Vector3(0, lazerex.transform.localScale.y);
-            }
+    //        if (lazerex != null)
+    //        {
+    //            lazerex.gameObject.transform.position = pos[i].position;
+    //            lazerex.transform.rotation = rot[i];
+    //            lazerex.transform.localScale = new Vector3(0, lazerex.transform.localScale.y);
+    //        }
 
-            seq.Append(lazerex.transform.DOScaleX(1, 0.5f)
-                .SetEase(Ease.OutElastic))
-                .Append(lazerex.transform.DOScaleX(0, 0.25f));
-        }
-    }
+    //        seq.Append(lazerex.transform.DOScaleX(1, 0.5f)
+    //            .SetEase(Ease.OutElastic))
+    //            .Append(lazerex.transform.DOScaleX(0, 0.25f));
+    //    }
+    //}
 
-    public void ShotExpolme(Transform pos, Quaternion rot)
-    {
+    //public void ShotExpolme(Transform pos, Quaternion rot)
+    //{
 
-        lazerex = PoolManager.Instance.Pop("Lazerex") as Pooling;
-        _lazerSpriteex = lazerex.GetComponent<SpriteRenderer>();
-        seq = DOTween.Sequence();
+    //    lazerex = PoolManager.Instance.Pop("Lazerex") as Pooling;
+    //    _lazerSpriteex = lazerex.GetComponent<SpriteRenderer>();
+    //    seq = DOTween.Sequence();
 
-        if (lazerex != null)
-        {
-            lazerex.gameObject.transform.position = pos.position;
-            lazerex.transform.rotation = rot;
-            lazerex.transform.localScale = new Vector3(0, lazerex.transform.localScale.y);
-        }
+    //    if (lazerex != null)
+    //    {
+    //        lazerex.gameObject.transform.position = pos.position;
+    //        lazerex.transform.rotation = rot;
+    //        lazerex.transform.localScale = new Vector3(0, lazerex.transform.localScale.y);
+    //    }
 
-        seq.Append(lazerex.transform.DOScaleX(1, 0.5f)
-            .SetEase(Ease.OutElastic))
-            .Append(lazerex.transform.DOScaleX(0, 0.25f));
-    }
+    //    seq.Append(lazerex.transform.DOScaleX(1, 0.5f)
+    //        .SetEase(Ease.OutElastic))
+    //        .Append(lazerex.transform.DOScaleX(0, 0.25f));
+    //}
 
     public void ShootLazerArr(Transform[] pos, Quaternion[] rot)
     {
         for(int i = 0; i < pos.Length; i++)
         {
             lazer = PoolManager.Instance.Pop("Lazer") as Pooling;
-            _lazerSprite = lazer.GetComponent<SpriteRenderer>();
+           // _lazerSprite = lazer.GetComponent<SpriteRenderer>();
             seq = DOTween.Sequence();
 
             if (lazer != null)
