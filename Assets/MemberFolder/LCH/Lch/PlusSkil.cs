@@ -30,5 +30,6 @@ public class PlusSkil : MonoBehaviour
             yield return new WaitForSeconds(0.8f);
         }
         Count = 0;
+        GameManager.Instance._EnemyTrunEnd = true;
     }
 }
