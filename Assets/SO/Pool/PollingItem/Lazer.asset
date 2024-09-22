@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe366c365232a04c8dd66f4d2896519, type: 3}
   m_Name: Lazer
   m_EditorClassIdentifier: 
-  poolName: 
-  prefab: {fileID: 0}
-  count: 0
+  poolName: Lazer
+  prefab: {fileID: 4671466049535007950, guid: 858c13aba54701d4e988aba405ee0774, type: 3}
+  count: 10

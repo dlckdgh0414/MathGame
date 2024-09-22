@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lazer: {fileID: 0}
+  lazerex: {fileID: 0}
   player: {fileID: 4108989048897954932}
 --- !u!114 &5121565697024790043
 MonoBehaviour:
