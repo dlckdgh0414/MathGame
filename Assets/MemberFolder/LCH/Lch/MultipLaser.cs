@@ -41,6 +41,7 @@ public class MultipLaser : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
          Ipoolable item = GetComponent<Ipoolable>();
          PoolManager.Instance.Push(item);
+        GameManager.Instance._EnemyTrunEnd = true;
             
     }
 }
