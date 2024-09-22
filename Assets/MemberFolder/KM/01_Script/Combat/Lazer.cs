@@ -29,8 +29,7 @@ public class Lazer : MonoBehaviour
                 lazerex.transform.localScale = new Vector3(0, lazerex.transform.localScale.y);
             }
 
-            seq.Append(lazerex.transform.DOScaleX(1, 0.5f)
-                .SetEase(Ease.OutElastic))
+            seq.Append(lazerex.transform.DOScaleX(1, 0.5f))
                 .Append(lazerex.transform.DOScaleX(0, 0.25f));
         }
     }
@@ -49,8 +48,7 @@ public class Lazer : MonoBehaviour
             lazerex.transform.localScale = new Vector3(0, lazerex.transform.localScale.y);
         }
 
-        seq.Append(lazerex.transform.DOScaleX(1, 0.5f)
-            .SetEase(Ease.OutElastic))
+        seq.Append(lazerex.transform.DOScaleX(1, 0.5f))
             .Append(lazerex.transform.DOScaleX(0, 0.25f));
     }
 
