@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7046308981323089000}
   - component: {fileID: 6112373377104562853}
   m_Layer: 0
-  m_Name: Lazerex
+  m_Name: LazerEx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19cdc630ff7e9ca43a0a914fb64a5175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolName: Lazerex
+  poolName: LazerEX
 --- !u!114 &6112373377104562853
 MonoBehaviour:
   m_ObjectHideFlags: 0

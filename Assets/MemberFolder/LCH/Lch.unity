@@ -220,6 +220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MultiplicationAttack
       objectReference: {fileID: 0}
+    - target: {fileID: 4108989048897954932, guid: 92dd44455d0891d4688959395d8a361a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8656340675496062463, guid: 92dd44455d0891d4688959395d8a361a, type: 3}
       propertyPath: lazer
       value: 

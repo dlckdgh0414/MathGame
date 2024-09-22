@@ -15,6 +15,9 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _playerHealth.MinusDamage(_enemy._enemystats.AttackPower);
+        if (CompareTag("Player"))
+        {
+            _playerHealth.MinusDamage(_enemy._enemystats.AttackPower);
+        }
     }
 }
