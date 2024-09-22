@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe366c365232a04c8dd66f4d2896519, type: 3}
   m_Name: Plus2
   m_EditorClassIdentifier: 
-  poolName: PlusAttack
-  prefab: {fileID: 3751716701749566697, guid: 84016337bdf7e4c44a448ac7121476d0, type: 3}
+  poolName: PlusAttackBase
+  prefab: {fileID: 3751716701749566697, guid: a819d532d2cfdba419dcf5ed0a5940cf, type: 3}
   count: 10

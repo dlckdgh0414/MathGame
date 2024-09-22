@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d9e6160de942545ac7e2c706236c49, type: 3}
   m_Name: FourBasicOperations
   m_EditorClassIdentifier: 
-  EnemyName: 0
-  Hp: 0
-  AttackPower: 0
+  EnemyName: 4
+  Hp: 150
+  AttackPower: 10
   AttackDuration: 0

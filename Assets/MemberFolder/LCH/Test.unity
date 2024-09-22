@@ -8427,7 +8427,7 @@ GameObject:
   - component: {fileID: 1405989852}
   m_Layer: 0
   m_Name: FourBasicOperations
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9317,6 +9317,7 @@ MonoBehaviour:
   useItem: 0
   enemyStatList: {fileID: 11400000, guid: 2113bd53b469402468bae527c77b28b3, type: 2}
   _isFinish: 0
+  _EnemyTrunEnd: 0
 --- !u!4 &1809879793
 Transform:
   m_ObjectHideFlags: 0
