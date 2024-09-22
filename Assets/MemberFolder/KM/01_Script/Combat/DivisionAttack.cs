@@ -18,6 +18,8 @@ public class DivisionAttack : MonoBehaviour
         {
             _pushZone[i] = GameObject.Find($"PrefabPush{i + 1}").transform;
         }
+
+        StartCoroutine(TestRoutine());
     }
 
     public void DivisionPhase1()
@@ -49,7 +51,16 @@ public class DivisionAttack : MonoBehaviour
     {
         //enemy.transform.DOLocalMoveY(_pushZone[rand].localScale.y + 0.5f, 0.25f);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.6f);
         lazer.ShootLazer(enemy.gameObject.transform, _pushZone[rand].rotation);
+    }
+
+    private IEnumerator TestRoutine()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            DivisionPhase1();
+            yield return new WaitForSeconds(1f);
+        }
     }
 }
