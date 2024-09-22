@@ -33,14 +33,26 @@ public class FourBasicOperationsSkil : MonoBehaviour
         switch (rand)
         {
             case 1:
-                Pase1Attack1();
+               StartCoroutine(Pase1Attack1());
+                break;
+            case 2:
+                //StartCoroutine(Pase1Attack2());
                 break;
         }
     }
 
-    private void Pase1Attack1()
-    {
+    //private string Pase1Attack2()
+    //{
         
+    //}
+
+    private IEnumerator Pase1Attack1()
+    {
+        PoolManager.Instance.Pop("PlusAttackBase");
+        yield return new WaitForSeconds(0.5f);
+        Ipoolable item = GameObject.Find("PlusAttack2").GetComponent<Ipoolable>();
+        PoolManager.Instance.Push(item);
+
     }
 
     private void Pase2()

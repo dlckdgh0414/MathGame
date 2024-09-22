@@ -70,6 +70,9 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Enemy State: Division");
                 EnemyTrun();
                 break;
+            case EnemyStateEnum.FourBasicOperations:
+                EnemyTrun();
+                break;
             default:
                 Debug.LogWarning("Unknown Enemy State");
                 break;
