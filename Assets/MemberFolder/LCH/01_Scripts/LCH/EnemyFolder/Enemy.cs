@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public enum EnemyStateEnum
 {
-   plus,Minusus,Multiplication,Division, Hit,Dead
+   plus,Minusus,Multiplication,Division, FourBasicOperations, Hit,Dead
 }
 public class Enemy : EnemySetting
 {

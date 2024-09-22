@@ -13,7 +13,6 @@ public class PoolManager : MonoSingleton<PoolManager>
 
     private void Awake()
     {
-        Debug.Log("P");
         _pools = new Dictionary<string, Pool>();
         foreach (PoolItemSO so in _poolList.list)
         {
