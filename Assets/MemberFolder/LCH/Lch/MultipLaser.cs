@@ -14,17 +14,21 @@ public class MultipLaser : MonoBehaviour
         _lazerAttack = GetComponent<Lazer>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(LaserShot());
     }
 
     private IEnumerator LaserShot()
     {
+        //_lazerAttack.ShotExpolmeArr(_lazerPos, _shotRot);
+        //yield return new WaitForSeconds(1f);
         while (true)
         {
-            yield return new WaitForSeconds(1f);
-            _lazerAttack.ShootLazerArr(_lazerPos,_shotRot);
+            _lazerAttack.ShootLazerArr(_lazerPos, _shotRot);
+            yield return new WaitForSeconds(0.3F);
+            Ipoolable item = GetComponent<Ipoolable>();
+            PoolManager.Instance.Push(item);
         }
     }
 }
