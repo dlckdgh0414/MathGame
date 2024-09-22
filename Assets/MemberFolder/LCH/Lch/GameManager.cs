@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     private GameObject _problemUI;
     private Enemy _enemy;
     public  bool _isFinish;
-    private bool _isEnemyTurn;
+    public bool _EnemyTrunEnd = false;
 
     private void OnEnable()
     {
@@ -172,7 +172,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator EnemyAttackRoutine()
     {
-        yield return new WaitForSeconds(_currentEnemy.AttackDuration);
+        yield return new WaitUntil(()=>_EnemyTrunEnd);
         OnEnemyAttackEnd?.Invoke();
     }
 
