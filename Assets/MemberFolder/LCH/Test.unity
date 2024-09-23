@@ -8478,7 +8478,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -8515,7 +8515,7 @@ MonoBehaviour:
   FinalDeadEvent:
     m_PersistentCalls:
       m_Calls: []
-  _enemystats: {fileID: 11400000, guid: 1b4942e7f86257b45b614f6e9c4cccce, type: 2}
+  _enemystats: {fileID: 0}
   EnemyAttackEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -9025,6 +9025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc63f4c2ae6bb3c4b987101fb2d9282d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enmyOwer: {fileID: 0}
 --- !u!1 &1764848330
 GameObject:
   m_ObjectHideFlags: 0
