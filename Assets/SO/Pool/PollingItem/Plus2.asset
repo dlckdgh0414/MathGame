@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77d9e6160de942545ac7e2c706236c49, type: 3}
-  m_Name: FourBasicOperations
+  m_Script: {fileID: 11500000, guid: cfe366c365232a04c8dd66f4d2896519, type: 3}
+  m_Name: Plus2
   m_EditorClassIdentifier: 
-  EnemyName: 4
-  Hp: 150
-  AttackPower: 10
-  AttackDuration: 0
+  poolName: PlusAttackBase
+  prefab: {fileID: 3751716701749566697, guid: a819d532d2cfdba419dcf5ed0a5940cf, type: 3}
+  count: 10

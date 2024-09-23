@@ -33,18 +33,22 @@ public class FourBasicOperationsSkil : MonoBehaviour
         switch (rand)
         {
             case 1:
-               StartCoroutine(Pase1Attack1());
+                StartCoroutine(Pase1Attack1());
                 break;
             case 2:
-                //StartCoroutine(Pase1Attack2());
+                StartCoroutine(Pase1Attack2());
                 break;
         }
     }
 
-    //private string Pase1Attack2()
-    //{
-        
-    //}
+    private IEnumerator Pase1Attack2()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            yield return new WaitForSeconds(0.5f);
+            PoolManager.Instance.Pop("PlusAttack3");
+        }
+    }
 
     private IEnumerator Pase1Attack1()
     {
