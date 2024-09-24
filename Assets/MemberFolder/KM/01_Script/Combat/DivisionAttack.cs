@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class DivisionAttack : MonoBehaviour
 {
@@ -69,9 +70,10 @@ public class DivisionAttack : MonoBehaviour
     {
         //enemy.transform.DOLocalMoveY(_pushZone[rand].localScale.y + 0.5f, 0.25f);
 
-        lazer.ShotExpolme(enemy.gameObject.transform, _pushZone[rand].rotation);
+        lazer.ShotExpolmeArr(new[] { enemy.gameObject.transform }, new[] { _pushZone[rand].rotation });
         yield return new WaitForSeconds(0.6f);
-        lazer.ShootLazer(enemy.gameObject.transform, _pushZone[rand].rotation);
+
+        lazer.ShootLazerArr(new[] { enemy.gameObject.transform }, new[] { _pushZone[rand].rotation });
     }
 
     private IEnumerator TestRoutine()
