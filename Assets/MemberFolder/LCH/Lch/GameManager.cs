@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     private void HandlAttackEnd()
     {
         state = TrunState.playerTurn;
-        Debug.Log("플레이어 턴");
+        _EnemyTrunEnd = false;
     }
 
     public void HandleAttackStart()

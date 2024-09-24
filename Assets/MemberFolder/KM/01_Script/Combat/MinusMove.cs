@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinusMove : MonoBehaviour
+public class MinusMoveSkil : MonoBehaviour
 {
 
 }
