@@ -1,13 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class ProbelmsReader : MonoBehaviour
 {
     const string URL = "https://docs.google.com/spreadsheets/d/1dUTpj2FoPiGo1JKVeHw8iyc3zGqvFQukfNoA8TDTl6c/export?format=tsv&range=A2:F";
+    [SerializeField] private MathProblemSO _mathProblemSO;
 
-    IEnumerator Start()
+
+    private IEnumerator Start()
     {
         UnityWebRequest www = UnityWebRequest.Get(URL);
         yield return www.SendWebRequest();
@@ -23,6 +24,15 @@ public class ProbelmsReader : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        _mathProblemSO.Problem.Clear();
+        _mathProblemSO.Choice1.Clear();
+        _mathProblemSO.Choice2.Clear();
+        _mathProblemSO.Choice3.Clear();
+        _mathProblemSO.Choice4.Clear();
+        _mathProblemSO.ResultNumber.Clear();
+    }
     void ParseTSVData(string data)
     {
         // TSV 데이터를 줄 단위로 나누기
@@ -32,25 +42,17 @@ public class ProbelmsReader : MonoBehaviour
         {
             if (string.IsNullOrWhiteSpace(row)) continue;
 
-            // 각 줄을 탭으로 구분하여 열 단위로 나누기
             string[] columns = row.Split('\t');
 
-            if (columns.Length >= 6)
-            {
-                string question = columns[0];
-                string option1 = columns[1];
-                string option2 = columns[2];
-                string option3 = columns[3];
-                string option4 = columns[4];
-                string answer = columns[5];
+            _mathProblemSO.Problem.Add(columns[0]);
+            _mathProblemSO.Choice1.Add(columns[1]);
+            _mathProblemSO.Choice2.Add(columns[2]);
+            _mathProblemSO.Choice3.Add(columns[3]);
+            _mathProblemSO.Choice4.Add(columns[4]);
+            _mathProblemSO.ResultNumber.Add(columns[5]);
 
-                Debug.Log($"Question: {question}");
-                Debug.Log($"1. {option1}");
-                Debug.Log($"2. {option2}");
-                Debug.Log($"3. {option3}");
-                Debug.Log($"4. {option4}");
-                Debug.Log($"Answer: {answer}");
-            }
         }
     }
+
+    
 }
