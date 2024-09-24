@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class ProbelmDetail
+[CreateAssetMenu (fileName = "MathProblem/SO")]
+public class MathProblemSO : ScriptableObject
 {
     public List<string> Problem;
 
