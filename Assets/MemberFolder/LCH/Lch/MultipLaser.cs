@@ -35,9 +35,9 @@ public class MultipLaser : MonoBehaviour
     {
         yield return new WaitUntil(() => PoolManager.Instance.IsInitEnd);
         Debug.Log("Laser");
-        _lazerAttack.ShotExpolmeArr(_lazerPos, _shotRot);
+        _lazerAttack.ShotExpolmeArr(_lazerPos, _shotRot, null);
         yield return new WaitForSeconds(1f);
-        _lazerAttack.ShootLazerArr(_lazerPos, _shotRot);
+        _lazerAttack.ShootLazerArr(_lazerPos, _shotRot, null);
         yield return new WaitForSeconds(0.5f);
          Ipoolable item = GetComponent<Ipoolable>();
          PoolManager.Instance.Push(item);
