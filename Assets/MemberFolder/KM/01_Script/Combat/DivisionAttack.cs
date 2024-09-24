@@ -32,17 +32,35 @@ public class DivisionAttack : MonoBehaviour
             {
                 int rand = Random.Range(0, _pushZone.Length);
 
-                float offsetX = Random.Range(-(_pushZone[rand].localScale.x / 2) + 1, 
-                    (_pushZone[rand].localScale.x / 2) - 1);
+                float offsetX = Random.Range(-(_pushZone[rand].localScale.x / 2) + 2, 
+                    (_pushZone[rand].localScale.x / 2) - 2);
 
                 enemy.transform.rotation = _pushZone[rand].transform.rotation;
 
-                Vector3 offset = new Vector3(offsetX, _pushZone[rand].localScale.y - 0.5f);
+                Vector3 offset = new Vector3(offsetX, 
+                    _pushZone[rand].localScale.y - 0.5f);
+
+                if (enemy.transform.rotation.z != 0)
+                    offset = new Vector3(_pushZone[rand]
+                        .localScale.y - 0.5f, offsetX);
 
                 enemy.transform.position = _pushZone[rand].localPosition + offset;
                 Count++;
 
                 StartCoroutine(LazerShootingRoutine(rand));
+            }
+        }
+    }
+
+    public void DivisionPhase2()
+    {
+        if (Count <= 10)
+        {
+            enemy = PoolManager.Instance.Pop("Division") as Pooling;
+
+            if (enemy != null)
+            {
+
             }
         }
     }
