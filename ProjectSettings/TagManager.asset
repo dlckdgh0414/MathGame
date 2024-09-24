@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - PrefabPushZone
   - EnemyPrefab
+  - Minus2
   layers:
   - Default
   - TransparentFX

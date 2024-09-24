@@ -20,4 +20,15 @@ public class PlusMove : MonoBehaviour
         transform.DORotate(new Vector3(0, 0, 360), 0.4f, RotateMode.FastBeyond360)
                 .SetLoops(-1, LoopType.Incremental);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("µé¾î¿È");
+        if (collision.gameObject.CompareTag("Minus2"))
+        {
+            Ipoolable item = GetComponent<Ipoolable>();
+            PoolManager.Instance.Push(item);
+            PoolManager.Instance.Pop("MultiplicationAttack");
+        }
+    }
 }
