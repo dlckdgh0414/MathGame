@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public bool isDead;
     public bool useItem;
 
-    public event Action OnEnemyAttackStart;
+    public Action OnEnemyAttackStart;
     public event Action OnEnemyAttackEnd;
     public event Action OnBattleEnd;
     public event Action OnItemUse;

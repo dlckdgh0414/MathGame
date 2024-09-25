@@ -8,7 +8,7 @@ public class SelectMathButton : MonoBehaviour
     [SerializeField] private Slider _timeSlider;
     [SerializeField] private GameObject _mathProblem;
     [field : SerializeField] public bool _isGuess { get; set; }
-    private int _damage;
+    public static float _damage;
     private GameObject _enemy;
 
 
