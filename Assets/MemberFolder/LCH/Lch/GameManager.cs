@@ -2,15 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-	public enum TrunState
+    public enum TrunState
     {
-        start,playerTurn,enemyTurn, win
+        start, playerTurn, enemyTurn, win
     }
 
     public TrunState state;
@@ -28,8 +27,10 @@ public class GameManager : MonoBehaviour
     private EnemyStatsSo _currentEnemy;
     private GameObject _problemUI;
     private Enemy _enemy;
-    public  bool _isFinish;
+    public bool _isFinish;
     public bool _EnemyTrunEnd = false;
+    private bool _isOpen;
+    private GameObject _itemBag;
 
     private void OnEnable()
     {
@@ -88,7 +89,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -96,7 +97,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        _itemBag = GameObject.Find("ItemBag");
         _problemUI = GameObject.Find("MathProblem0");
         foreach (EnemyStatsSo enemy in enemyStatList.enemyStatList)
         {
@@ -111,6 +112,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        _isOpen = false;
+        _itemBag.SetActive(false);
         _problemUI.SetActive(false);
     }
 
@@ -121,7 +124,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerAttackButton() //공격버튼 클릭
     {
-        if(state != TrunState.playerTurn) // 플레이어 턴이 아닐때는 눌려도 반응하지 않게 하기
+        if (state != TrunState.playerTurn) // 플레이어 턴이 아닐때는 눌려도 반응하지 않게 하기
         {
             return;
         }
@@ -162,9 +165,18 @@ public class GameManager : MonoBehaviour
         UsingItem();
     }
 
-     public void UsingItem()
+    public void UsingItem()
     {
-        //아이템 사용 코드 적기
+        if (_isOpen == false)
+        {
+            _itemBag.SetActive(true);
+            _isOpen = true;
+        }
+        else if (_isOpen == true)
+        {
+            _itemBag.SetActive(false);
+            _isOpen = false;
+        }
 
         if (useItem)
         {
@@ -175,7 +187,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator EnemyAttackRoutine()
     {
-        yield return new WaitUntil(()=>_EnemyTrunEnd);
+        yield return new WaitUntil(() => _EnemyTrunEnd);
         OnEnemyAttackEnd?.Invoke();
     }
 
