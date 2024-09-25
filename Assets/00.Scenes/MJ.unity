@@ -2305,6 +2305,7 @@ MonoBehaviour:
   isDead: 0
   useItem: 0
   enemyStatList: {fileID: 11400000, guid: 2113bd53b469402468bae527c77b28b3, type: 2}
+  _itemList: []
   _isFinish: 0
   _EnemyTrunEnd: 0
 --- !u!1001 &4724679490155716749

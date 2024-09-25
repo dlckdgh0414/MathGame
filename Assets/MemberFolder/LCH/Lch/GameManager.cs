@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public TrunState state;
     public bool isDead;
     public bool useItem;
+    private int _randomInt;
 
     public Action OnEnemyAttackStart;
     public event Action OnEnemyAttackEnd;
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
     public EnemyStatSOList enemyStatList;
 
     private List<EnemyStatsSo> _enemyList = new List<EnemyStatsSo>();
+    public List<GameObject> _itemList = new List<GameObject>();
     private EnemyStatsSo _currentEnemy;
     private GameObject _problemUI;
     private Enemy _enemy;
@@ -97,6 +99,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        _randomInt = UnityEngine.Random.Range(0, 9);
         _itemBag = GameObject.Find("ItemBag");
         _problemUI = GameObject.Find("MathProblem0");
         foreach (EnemyStatsSo enemy in enemyStatList.enemyStatList)
@@ -147,6 +150,8 @@ public class GameManager : MonoBehaviour
         if (isDead)
         {
             state = TrunState.win;
+            _itemList[_randomInt].SetActive(true);
+            _randomInt = UnityEngine.Random.Range(0, 9);
             OnBattleEnd?.Invoke();
         }
         else
