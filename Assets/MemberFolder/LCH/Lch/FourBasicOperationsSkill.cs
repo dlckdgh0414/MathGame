@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FourBasicOperationsSkill : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class FourBasicOperationsSkill : MonoBehaviour
     [SerializeField] Transform[] _boasPos;
     [SerializeField] Transform _lastPos;
     public Pooling enemy;
+    public UnityEvent Phase1Attack4Event;
+
     private void Awake()
     {
         _enmyOwer = GetComponentInParent<Enemy>();
@@ -32,22 +35,24 @@ public class FourBasicOperationsSkill : MonoBehaviour
 
     private void Pase1()
     {
-        //int rand = Random.Range(0, 4);
+        int rand = Random.Range(0, 5);
 
-        //switch (rand)
-        //{
-        //    case 1:
-        //        StartCoroutine(Pase1Attack1());
-        //        break;
-        //    case 2:
-        //        StartCoroutine(Pase1Attack2());
-        //        break;
-        //    case 3:
+        switch (rand)
+        {
+            case 1:
+                StartCoroutine(Pase1Attack1());
+                break;
+            case 2:
+                StartCoroutine(Pase1Attack2());
+                break;
+            case 3:
                 StartCoroutine(Pase1Attack3());
-        //        break;
-        //}
+                break;
+            case 4:
+                Phase1Attack4Event?.Invoke();
+                break;
+        }
     }
-
     private IEnumerator Pase1Attack3()
     {
         for(int i = 0; i < 2; i++)
@@ -75,11 +80,15 @@ public class FourBasicOperationsSkill : MonoBehaviour
     private IEnumerator Pase1Attack1()
     {
         PoolManager.Instance.Pop("PlusAttackBase");
+        for(int i = 0; i < 3; i++)
+        {
+            PoolManager.Instance.Pop("Division");
+        }
         yield return new WaitForSeconds(2f);
-        Ipoolable item = GameObject.Find("PlusAttack2").GetComponent<Ipoolable>();
+        Ipoolable item = GameObject.FindWithTag("EnemyPrefab").GetComponent<Ipoolable>();
         PoolManager.Instance.Push(item);
 
-        GameManager.Instance._EnemyTrunEnd = false;
+        GameManager.Instance._EnemyTrunEnd = true;
 
     }
 
