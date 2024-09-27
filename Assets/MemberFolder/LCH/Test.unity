@@ -6651,7 +6651,7 @@ GameObject:
   - component: {fileID: 842789979}
   - component: {fileID: 842789980}
   m_Layer: 0
-  m_Name: PrefabPush
+  m_Name: PrefabPush1
   m_TagString: PrefabPushZone
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -7177,7 +7177,7 @@ GameObject:
   - component: {fileID: 1075776454}
   - component: {fileID: 1075776455}
   m_Layer: 0
-  m_Name: PrefabPush (1)
+  m_Name: PrefabPush2
   m_TagString: PrefabPushZone
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -8494,7 +8494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1405989849
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9112,6 +9112,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1732383492}
   - component: {fileID: 1732383493}
+  - component: {fileID: 1732383494}
+  - component: {fileID: 1732383495}
   m_Layer: 0
   m_Name: FourBasicOperationsSkill
   m_TagString: Untagged
@@ -9166,6 +9168,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  DivisonAttackEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1732383494}
+        m_TargetAssemblyTypeName: DivisionAttack, Assembly-CSharp
+        m_MethodName: DivisionPhase2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1732383494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732383491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941d91e143f7df84cb78efeaa3a30e60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 8118109596238084352, guid: 013f0b8bb01a77946a2b2d3276e540d6, type: 3}
+  lazer: {fileID: 1732383495}
+  enemyStat: {fileID: 11400000, guid: 1de5a79173a35ba499f271e8f32ae936, type: 2}
+--- !u!114 &1732383495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732383491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4825fb6bb3166814b9e3fd5c13d7ef8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lazer: {fileID: 0}
+  lazerex: {fileID: 0}
+  player: {fileID: 1307342302}
 --- !u!1 &1764848330
 GameObject:
   m_ObjectHideFlags: 0
@@ -9457,6 +9504,7 @@ MonoBehaviour:
   isDead: 0
   useItem: 0
   enemyStatList: {fileID: 11400000, guid: 2113bd53b469402468bae527c77b28b3, type: 2}
+  _itemList: []
   _isFinish: 0
   _EnemyTrunEnd: 0
 --- !u!4 &1809879793
@@ -9742,7 +9790,7 @@ GameObject:
   - component: {fileID: 1919718099}
   - component: {fileID: 1919718100}
   m_Layer: 0
-  m_Name: PrefabPush (2)
+  m_Name: PrefabPush3
   m_TagString: PrefabPushZone
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -10119,63 +10167,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2043024866}
   m_CullTransparentMesh: 1
---- !u!1001 &2051462355
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3198039845357461815, guid: 2573ac91e2244774882bad3f3cd91469, type: 3}
-      propertyPath: m_Name
-      value: Multiplication
-      objectReference: {fileID: 0}
-    - target: {fileID: 6553762538499850460, guid: 2573ac91e2244774882bad3f3cd91469, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 6553762538499850460, guid: 2573ac91e2244774882bad3f3cd91469, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 6553762538499850460, guid: 2573ac91e2244774882bad3f3cd91469, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6553762538499850460, guid: 2573ac91e2244774882bad3f3cd91469, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6553762538499850460, guid: 2573ac91e2244774882bad3f3cd91469, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6553762538499850460, guid: 2573ac91e2244774882bad3f3cd91469, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6553762538499850460, guid: 2573ac91e2244774882bad3f3cd91469, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6553762538499850460, guid: 2573ac91e2244774882bad3f3cd91469, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6553762538499850460, guid: 2573ac91e2244774882bad3f3cd91469, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6553762538499850460, guid: 2573ac91e2244774882bad3f3cd91469, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2573ac91e2244774882bad3f3cd91469, type: 3}
 --- !u!1001 &2089884627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10423,4 +10414,3 @@ SceneRoots:
   - {fileID: 621611187}
   - {fileID: 2089884627}
   - {fileID: 1405989850}
-  - {fileID: 2051462355}

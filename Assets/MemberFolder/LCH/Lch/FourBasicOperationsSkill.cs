@@ -11,6 +11,7 @@ public class FourBasicOperationsSkill : MonoBehaviour
     [SerializeField] Transform _lastPos;
     public Pooling enemy;
     public UnityEvent Phase1Attack4Event;
+    public UnityEvent DivisonAttackEvent;
 
     private void Awake()
     {
@@ -37,21 +38,21 @@ public class FourBasicOperationsSkill : MonoBehaviour
     {
         int rand = Random.Range(0, 5);
 
-        switch (rand)
-        {
-            case 1:
-                StartCoroutine(Pase1Attack1());
-                break;
-            case 2:
-                StartCoroutine(Pase1Attack2());
-                break;
-            case 3:
-                StartCoroutine(Pase1Attack3());
-                break;
-            case 4:
+        //switch (rand)
+        //{
+        //    case 1:
+        //        StartCoroutine(Pase1Attack1());
+        //        break;
+        //    case 2:
+        //        StartCoroutine(Pase1Attack2());
+        //        break;
+        //    case 3:
+        //        StartCoroutine(Pase1Attack3());
+        //        break;
+        //    case 4:
                 Phase1Attack4Event?.Invoke();
-                break;
-        }
+        //        break;
+        //}
     }
     private IEnumerator Pase1Attack3()
     {
@@ -80,10 +81,7 @@ public class FourBasicOperationsSkill : MonoBehaviour
     private IEnumerator Pase1Attack1()
     {
         PoolManager.Instance.Pop("PlusAttackBase");
-        for(int i = 0; i < 3; i++)
-        {
-            PoolManager.Instance.Pop("Division");
-        }
+        DivisonAttackEvent?.Invoke();
         yield return new WaitForSeconds(2f);
         Ipoolable item = GameObject.FindWithTag("EnemyPrefab").GetComponent<Ipoolable>();
         PoolManager.Instance.Push(item);
