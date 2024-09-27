@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+
     public enum TrunState
     {
         start, playerTurn, enemyTurn, win
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     public bool isDead;
     public bool useItem;
     private int _randomInt;
+    private int _itemCount;
 
     public Action OnEnemyAttackStart;
     public event Action OnEnemyAttackEnd;
@@ -27,12 +29,12 @@ public class GameManager : MonoBehaviour
     private List<EnemyStatsSo> _enemyList = new List<EnemyStatsSo>();
     public List<GameObject> _itemList = new List<GameObject>();
     private EnemyStatsSo _currentEnemy;
-    private GameObject _problemUI;
+    [SerializeField] private GameObject _problemUI;
     private Enemy _enemy;
     public bool _isFinish;
     public bool _EnemyTrunEnd = false;
     private bool _isOpen;
-    private GameObject _itemBag;
+    [SerializeField] private GameObject _itemBag;
 
     private void OnEnable()
     {
@@ -43,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleBattleEnd()
     {
-        Debug.Log("ÀüÅõ Á¾·á");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
     }
 
     private void HandlAttackEnd()
@@ -91,6 +93,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+
         if (Instance == null)
         {
             Instance = this;
@@ -99,9 +102,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        _randomInt = UnityEngine.Random.Range(0, 9);
-        _itemBag = GameObject.Find("ItemBag");
-        _problemUI = GameObject.Find("MathProblem0");
         foreach (EnemyStatsSo enemy in enemyStatList.enemyStatList)
         {
             _enemyList.Add(enemy);
@@ -109,16 +109,27 @@ public class GameManager : MonoBehaviour
         _currentEnemy = _enemyList[0];
 
         state = TrunState.start;
-        BattleStart();
         _enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
+
+        _itemCount = _itemBag.transform.childCount;
+        _randomInt = UnityEngine.Random.Range(0, _itemCount);
     }
 
     private void Start()
     {
         _isOpen = false;
+        state = TrunState.enemyTurn;
+
+        print(_randomInt);
+
+
+        for (int i = 0; i < _itemCount; i++)
+        {
+            _itemList.Add(_itemBag.transform.GetChild(i).gameObject);
+            _itemList[i].SetActive(false);
+        }
         _itemBag.SetActive(false);
         _problemUI.SetActive(false);
-        state = TrunState.enemyTurn;
     }
 
     private void BattleStart()
@@ -126,9 +137,9 @@ public class GameManager : MonoBehaviour
         state = TrunState.playerTurn;
     }
 
-    public void PlayerAttackButton() //°ø°Ý¹öÆ° Å¬¸¯
+    public void PlayerAttackButton() //ï¿½ï¿½ï¿½Ý¹ï¿½Æ° Å¬ï¿½ï¿½
     {
-        if (state != TrunState.playerTurn) // ÇÃ·¹ÀÌ¾î ÅÏÀÌ ¾Æ´Ò¶§´Â ´­·Áµµ ¹ÝÀÀÇÏÁö ¾Ê°Ô ÇÏ±â
+        if (state != TrunState.playerTurn) // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ò¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½Ï±ï¿½
         {
             _problemUI.SetActive(false);
             return;
@@ -141,9 +152,9 @@ public class GameManager : MonoBehaviour
 
     public void PlayerAttackCheck()
     {
-        //if (_isFinish) //ÀÌ°Å true°¡ ³Ê¹« ÀßµÇ¿ä..
+        if (_isFinish) //ï¿½Ì°ï¿½ trueï¿½ï¿½ ï¿½Ê¹ï¿½ ï¿½ßµÇ¿ï¿½..
         {
-            PlayerAttack(); //°ø°ÝÇÑµÚ EnemyTruneÀ¸·Î ³Ñ±â´Â ¸Þ¼­µå
+            PlayerAttack(); //ï¿½ï¿½ï¿½ï¿½ï¿½Ñµï¿½ EnemyTruneï¿½ï¿½ï¿½ï¿½ ï¿½Ñ±ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
         }
     }
 
@@ -154,10 +165,12 @@ public class GameManager : MonoBehaviour
             state = TrunState.win;
             _itemList[_randomInt].SetActive(true);
             _randomInt = UnityEngine.Random.Range(0, 9);
+            _isFinish = false;
             OnBattleEnd?.Invoke();
         }
         else
         {
+            _isFinish = false;
             OnEnemyAttackStart?.Invoke();
         }
     }
@@ -198,9 +211,8 @@ public class GameManager : MonoBehaviour
         OnEnemyAttackEnd?.Invoke();
     }
 
-    //private void Update()
-    //{
-    //    if ()
-    //    PlayerAttackCheck();
-    //}
+    private void Update()
+    {
+       PlayerAttackCheck();
+    }
 }
