@@ -118,6 +118,7 @@ public class GameManager : MonoBehaviour
         _isOpen = false;
         _itemBag.SetActive(false);
         _problemUI.SetActive(false);
+        state = TrunState.enemyTurn;
     }
 
     private void BattleStart()
@@ -129,6 +130,7 @@ public class GameManager : MonoBehaviour
     {
         if (state != TrunState.playerTurn) // 플레이어 턴이 아닐때는 눌려도 반응하지 않게 하기
         {
+            _problemUI.SetActive(false);
             return;
         }
         else
