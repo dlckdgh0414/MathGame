@@ -18,7 +18,7 @@ public class Phase1Attack4Skil : MonoBehaviour
         {
           float rand =  Random.Range(3.37f, -3.26f);
 
-            //transform.DOMoveX(rand, 0.5f);
+            transform.DOMoveX(rand, 0.5f);
             yield return new WaitForSeconds(0.3f);
         }
     }
