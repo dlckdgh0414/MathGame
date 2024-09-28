@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Minus
   m_EditorClassIdentifier: 
   EnemyName: 1
-  Hp: 0
-  AttackPower: 0
-  AttackDuration: 5
+  Hp: 5
+  AttackPower: 5
+  AttackDuration: 10
