@@ -22,31 +22,35 @@ public class MinusAttack : MonoBehaviour
     {
         StartCoroutine(AttackDurationRoutine());
 
-        _enemy.rectTransform.DOAnchorPosX(-300, 1f)
+        _enemy.rectTransform.DOAnchorPosX(-400, 1f)
            .SetEase(Ease.InOutCubic).OnComplete(() =>
            {
-               seq.Append(_enemy.rectTransform.DOAnchorPosX(300, 2f)
+               seq.Append(_enemy.rectTransform.DOAnchorPosX(400, 2f)
                   .SetEase(Ease.InOutCubic)
-                  .SetLoops(5, LoopType.Yoyo));
+                  .SetLoops(4, LoopType.Yoyo));
            });
     }
 
     private IEnumerator AttackDurationRoutine()
     {
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < 40; i++)
         {
-            yield return new WaitForSeconds(_currentStat.AttackDuration / 15);
+            yield return new WaitForSeconds(_currentStat.AttackDuration / 40);
             enemy = PoolManager.Instance.Pop("Minus") as Pooling;
 
             if (enemy != null)
             {
-                enemy.gameObject.transform.position = _enemy.transform.position;
+                enemy.transform.position = _enemy.transform.position;
+                enemy.GetComponent<Rigidbody2D>().AddForce(Vector3.up * 5f, ForceMode2D.Impulse);
             }
 
             StartCoroutine(PushEnemy(enemy));
-        }
 
-        _enemy.rectTransform.DOAnchorPosX(0, 1f);
+            if (i == 35)
+            {
+                _enemy.rectTransform.DOAnchorPosX(0, 1f).SetEase(Ease.InOutCubic);
+            }
+        }
     }
 
     private IEnumerator PushEnemy(Pooling pool)
