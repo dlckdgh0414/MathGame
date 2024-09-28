@@ -15,4 +15,4 @@ MonoBehaviour:
   EnemyName: 1
   Hp: 0
   AttackPower: 0
-  AttackDuration: 0
+  AttackDuration: 5

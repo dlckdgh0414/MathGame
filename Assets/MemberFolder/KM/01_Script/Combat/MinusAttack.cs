@@ -8,10 +8,7 @@ public class MinusAttack : MonoBehaviour
 {
     private Image _enemy;
     private Sequence seq;
-    public Pooling enemy;
-
-    private bool notAttackTime = false;
-    private float _currentTime, _coolTime;
+    private Pooling enemy;
 
     public EnemyStatsSo _currentStat;
 
@@ -25,11 +22,13 @@ public class MinusAttack : MonoBehaviour
     {
         StartCoroutine(AttackDurationRoutine());
 
-        seq.Append(_enemy.rectTransform.DOAnchorPosX(200, 1f)
-            .SetEase(Ease.InOutCubic))
-            .Append(_enemy.rectTransform.DOAnchorPosX(-200, 1f)
-            .SetEase(Ease.InOutCubic)
-            .SetLoops(-1, LoopType.Yoyo));
+        _enemy.rectTransform.DOAnchorPosX(-300, 1f)
+           .SetEase(Ease.InOutCubic).OnComplete(() =>
+           {
+               seq.Append(_enemy.rectTransform.DOAnchorPosX(300, 2f)
+                  .SetEase(Ease.InOutCubic)
+                  .SetLoops(5, LoopType.Yoyo));
+           });
     }
 
     private IEnumerator AttackDurationRoutine()
@@ -43,7 +42,16 @@ public class MinusAttack : MonoBehaviour
             {
                 enemy.gameObject.transform.position = _enemy.transform.position;
             }
+
+            StartCoroutine(PushEnemy(enemy));
         }
-        notAttackTime = true;
+
+        _enemy.rectTransform.DOAnchorPosX(0, 1f);
+    }
+
+    private IEnumerator PushEnemy(Pooling pool)
+    {
+        yield return new WaitForSeconds(_currentStat.AttackDuration);
+        PoolManager.Instance.Push(pool);
     }
 }
