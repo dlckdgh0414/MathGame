@@ -629,6 +629,7 @@ GameObject:
   - component: {fileID: 701382863285092138}
   - component: {fileID: 3409334769159990882}
   - component: {fileID: 4527325408574231538}
+  - component: {fileID: 2923353657689076450}
   m_Layer: 5
   m_Name: MathProblem0
   m_TagString: Untagged
@@ -763,6 +764,19 @@ MonoBehaviour:
   - {fileID: 158880293563315218}
   - {fileID: 2827017581523696683}
   problemName: {fileID: 5419093332639110987}
+--- !u!114 &2923353657689076450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6082724305656925600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b01af3c528c57724cb204db42e8519c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mathProblemSO: {fileID: 11400000, guid: 21c79c52b2999af40a5b8ea3860f8d2f, type: 2}
 --- !u!1 &6914241831225201084
 GameObject:
   m_ObjectHideFlags: 0
