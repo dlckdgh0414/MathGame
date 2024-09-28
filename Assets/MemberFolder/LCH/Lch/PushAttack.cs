@@ -18,8 +18,8 @@ public class PushAttack : MonoBehaviour
         if (collision.CompareTag("PrefabPushZone"))
         {
 
-            _lazer.ShotExpolmeArr(_pos,_rot);
-            _lazer.ShootLazerArr(_pos,_rot);
+            _lazer.ShotExpolmeArr(_pos,_rot,gameObject.transform);
+            _lazer.ShootLazerArr(_pos,_rot,gameObject.transform);
 
             Ipoolable item = gameObject.GetComponentInParent<Ipoolable>();
             if (item != null)
