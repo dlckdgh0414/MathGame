@@ -7,11 +7,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-
     public enum TrunState
     {
         start, playerTurn, enemyTurn, win
     }
+
 
     public TrunState state;
     public bool isDead;
@@ -111,14 +111,14 @@ public class GameManager : MonoBehaviour
         state = TrunState.start;
         _enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
 
-       // _itemCount = _itemBag.transform.childCount;
+       _itemCount = _itemBag.transform.childCount;
         _randomInt = UnityEngine.Random.Range(0, _itemCount);
     }
 
     private void Start()
     {
         _isOpen = false;
-        state = TrunState.enemyTurn;
+        state = TrunState.playerTurn;
 
         print(_randomInt);
 

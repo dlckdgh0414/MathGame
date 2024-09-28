@@ -35,7 +35,7 @@ public class FourBasicOperationsSkill : MonoBehaviour
         }
         else if (_enmyOwer.HelathCompo.Hp <= 5)
         {
-            LastPase();
+            LastPhaseEvent?.Invoke();
         }
     }
 
@@ -44,21 +44,21 @@ public class FourBasicOperationsSkill : MonoBehaviour
     {
         int rand = Random.Range(0, 5);
 
-        //switch (rand)
-        //{
-            //case 1:
-            //    StartCoroutine(Pase1Attack1());
-            //    break;
-            //case 2:
-            //    StartCoroutine(Pase1Attack2());
-            //    break;
-            //case 3:
-            //    StartCoroutine(Pase1Attack3());
-            //    break;
-            //case 4:
+        switch (rand)
+        {
+            case 1:
+                StartCoroutine(Pase1Attack1());
+                break;
+            case 2:
+                StartCoroutine(Pase1Attack2());
+                break;
+            case 3:
+                StartCoroutine(Pase1Attack3());
+                break;
+            case 4:
                 Phase1Attack4Event?.Invoke();
-        //        break;
-        //}
+                break;
+        }
     }
     private IEnumerator Pase1Attack3()
     {      
@@ -74,6 +74,7 @@ public class FourBasicOperationsSkill : MonoBehaviour
                 enemy2.gameObject.transform.position = _boasPos[0].position;
             }
         yield return new WaitForSeconds(0.1F);
+        GameManager.Instance._EnemyTrunEnd = true;
     }
 
     private IEnumerator Pase1Attack2()
@@ -96,24 +97,6 @@ public class FourBasicOperationsSkill : MonoBehaviour
         GameManager.Instance._EnemyTrunEnd = true;
 
     }
-
-    private IEnumerator Attack4()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(0.3f);
-            float rand = Random.Range(3.37f, -3.26f);
-
-            transform.DOMoveX(rand, 0.5f);
-            enemy = PoolManager.Instance.Pop("Minus3") as Pooling;
-
-            if (enemy != null)
-            {
-                enemy.transform.position = gameObject.transform.position;
-            }
-        }
-    }
-
 
     private void Pase2()
     {
@@ -181,10 +164,4 @@ public class FourBasicOperationsSkill : MonoBehaviour
 
         GameManager.Instance._EnemyTrunEnd = true;
     }
-
-    private void LastPase()
-    {
-         
-    }
-
 }
