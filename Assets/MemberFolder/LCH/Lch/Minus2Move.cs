@@ -12,14 +12,6 @@ public class Minus2Move : MonoBehaviour
 
     private void Start()
     {
-        if(transform.position.x< 0)
-        {
-            transform.rotation = Quaternion.Euler(0,0,-45);
-        }
-        else
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 45);
-        }
         target = GameObject.Find("LastPos");
         _moveDir = target.transform.position - transform.position;
         _moveDir.Normalize();
