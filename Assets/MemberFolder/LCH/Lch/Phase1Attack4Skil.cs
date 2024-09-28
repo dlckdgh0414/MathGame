@@ -27,7 +27,7 @@ public class Phase1Attack4Skil : MonoBehaviour
 
             if(_pool != null)
             {
-                _pool.transform.position = transform.position;
+                _pool.gameObject.transform.position = transform.position;
             }
         }
     }

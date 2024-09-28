@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
         state = TrunState.start;
         _enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
 
-        _itemCount = _itemBag.transform.childCount;
+       // _itemCount = _itemBag.transform.childCount;
         _randomInt = UnityEngine.Random.Range(0, _itemCount);
     }
 
