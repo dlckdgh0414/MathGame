@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Enemy State: plus");
                 EnemyTrun();
                 break;
-            case EnemyStateEnum.Minusus:
+            case EnemyStateEnum.Minus:
                 Debug.Log("Enemy State: Minusus");
                 EnemyTrun();
                 break;

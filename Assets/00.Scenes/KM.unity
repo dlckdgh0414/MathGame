@@ -9093,7 +9093,7 @@ GameObject:
   - component: {fileID: 1177117594}
   - component: {fileID: 1177117593}
   m_Layer: 5
-  m_Name: EnemyProfile
+  m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9868,9 +9868,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1956802970}
-        m_TargetAssemblyTypeName: DivisionAttack, Assembly-CSharp
-        m_MethodName: DivisionPhase1
+      - m_Target: {fileID: 1837844320}
+        m_TargetAssemblyTypeName: MinusAttack, Assembly-CSharp
+        m_MethodName: MinusAttack01
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12219,6 +12219,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827253889}
   m_CullTransparentMesh: 1
+--- !u!1 &1837844319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1837844321}
+  - component: {fileID: 1837844320}
+  m_Layer: 0
+  m_Name: Minus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1837844320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837844319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc857d41f9d1697459f734bea2011d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentStat: {fileID: 11400000, guid: ad6912df75d6f084e90ffc1ed728e39b, type: 2}
+--- !u!4 &1837844321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837844319}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.160563, y: -2.558562, z: -9.930574}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1868090582
 GameObject:
   m_ObjectHideFlags: 0
@@ -13541,4 +13586,5 @@ SceneRoots:
   - {fileID: 1671516795}
   - {fileID: 98994235}
   - {fileID: 1956802971}
+  - {fileID: 1837844321}
   - {fileID: 1029973190}

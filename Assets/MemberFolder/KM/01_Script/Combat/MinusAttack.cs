@@ -8,10 +8,7 @@ public class MinusAttack : MonoBehaviour
 {
     private Image _enemy;
     private Sequence seq;
-    public Pooling enemy;
-
-    private bool notAttackTime = false;
-    private float _currentTime, _coolTime;
+    private Pooling enemy;
 
     public EnemyStatsSo _currentStat;
 
@@ -25,25 +22,40 @@ public class MinusAttack : MonoBehaviour
     {
         StartCoroutine(AttackDurationRoutine());
 
-        seq.Append(_enemy.rectTransform.DOAnchorPosX(200, 1f)
-            .SetEase(Ease.InOutCubic))
-            .Append(_enemy.rectTransform.DOAnchorPosX(-200, 1f)
-            .SetEase(Ease.InOutCubic)
-            .SetLoops(-1, LoopType.Yoyo));
+        _enemy.rectTransform.DOAnchorPosX(-400, 1f)
+           .SetEase(Ease.InOutCubic).OnComplete(() =>
+           {
+               seq.Append(_enemy.rectTransform.DOAnchorPosX(400, 2f)
+                  .SetEase(Ease.InOutCubic)
+                  .SetLoops(4, LoopType.Yoyo));
+           });
     }
 
     private IEnumerator AttackDurationRoutine()
     {
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < 40; i++)
         {
-            yield return new WaitForSeconds(_currentStat.AttackDuration / 15);
+            yield return new WaitForSeconds(_currentStat.AttackDuration / 40);
             enemy = PoolManager.Instance.Pop("Minus") as Pooling;
 
             if (enemy != null)
             {
-                enemy.gameObject.transform.position = _enemy.transform.position;
+                enemy.transform.position = _enemy.transform.position;
+                enemy.GetComponent<Rigidbody2D>().AddForce(Vector3.up * 5f, ForceMode2D.Impulse);
+            }
+
+            StartCoroutine(PushEnemy(enemy));
+
+            if (i == 35)
+            {
+                _enemy.rectTransform.DOAnchorPosX(0, 1f).SetEase(Ease.InOutCubic);
             }
         }
-        notAttackTime = true;
+    }
+
+    private IEnumerator PushEnemy(Pooling pool)
+    {
+        yield return new WaitForSeconds(_currentStat.AttackDuration);
+        PoolManager.Instance.Push(pool);
     }
 }
