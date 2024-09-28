@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -2679144531956790679}
   - component: {fileID: -1410286799822219604}
   m_Layer: 0
-  m_Name: Minus3
+  m_Name: Minus5
   m_TagString: Minus2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4955137862021100399}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!212 &5780296006824406453
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19cdc630ff7e9ca43a0a914fb64a5175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolName: Minus3
+  poolName: Minus5
 --- !u!114 &-2679144531956790679
 MonoBehaviour:
   m_ObjectHideFlags: 0

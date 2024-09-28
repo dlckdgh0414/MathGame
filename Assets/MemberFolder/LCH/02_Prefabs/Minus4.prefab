@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -2679144531956790679}
   - component: {fileID: -1410286799822219604}
   m_Layer: 0
-  m_Name: Minus3
+  m_Name: Minus4
   m_TagString: Minus2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19cdc630ff7e9ca43a0a914fb64a5175, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolName: Minus3
+  poolName: Minus4
 --- !u!114 &-2679144531956790679
 MonoBehaviour:
   m_ObjectHideFlags: 0

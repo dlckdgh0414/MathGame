@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class PlusMove2 : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed = 5f;
+    [field:SerializeField] public float _moveSpeed = 5f;
     private Vector3 _moveDir;
     private void Update()
     {
