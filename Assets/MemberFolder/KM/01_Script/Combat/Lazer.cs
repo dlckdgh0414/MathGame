@@ -14,11 +14,12 @@ public class Lazer : MonoBehaviour
                  
     public GameObject player;
 
-    public void ShotExpolmeArr(Transform[] pos, Quaternion[] rot)
+    public void ShotExpolmeArr(Transform[] pos, Quaternion[] rot, Transform root)
     {
         for (int i = 0; i < pos.Length; i++)
         {
             lazerex = PoolManager.Instance.Pop("LazerEX") as Pooling;
+            lazerex.transform.SetParent(root);
             _lazerSpriteex = lazerex.GetComponent<SpriteRenderer>();
             seq = DOTween.Sequence();
 
@@ -34,11 +35,12 @@ public class Lazer : MonoBehaviour
         }
     }
 
-    public void ShootLazerArr(Transform[] pos, Quaternion[] rot)
+    public void ShootLazerArr(Transform[] pos, Quaternion[] rot, Transform root)
     {
         for(int i = 0; i < pos.Length; i++)
         {
             lazer = PoolManager.Instance.Pop("Lazer") as Pooling;
+            lazer.transform.SetParent(root);
             _lazerSprite = lazer.GetComponent<SpriteRenderer>();
             seq = DOTween.Sequence();
 

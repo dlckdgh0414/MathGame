@@ -1413,7 +1413,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1956802970}
         m_TargetAssemblyTypeName: DivisionAttack, Assembly-CSharp
-        m_MethodName: DivisionPhase1
+        m_MethodName: DivisionPhase2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9094,7 +9094,7 @@ GameObject:
   - component: {fileID: 1177117593}
   m_Layer: 5
   m_Name: EnemyProfile
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9868,9 +9868,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1671516796}
-        m_TargetAssemblyTypeName: Lazer, Assembly-CSharp
-        m_MethodName: Shoot
+      - m_Target: {fileID: 1956802970}
+        m_TargetAssemblyTypeName: DivisionAttack, Assembly-CSharp
+        m_MethodName: DivisionPhase1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10956,7 +10956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff5d3271a4a255419df2b886d40bec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <_dashSpeed>k__BackingField: 50
+  <_dashSpeed>k__BackingField: 10
   _playerinput: {fileID: 11400000, guid: 70c5df65452b90d4684c4a3d5ae663f5, type: 2}
   _playerMove: {fileID: 1499729215}
   isDash: 0
@@ -10975,7 +10975,7 @@ MonoBehaviour:
   _playerinput: {fileID: 11400000, guid: 70c5df65452b90d4684c4a3d5ae663f5, type: 2}
   xMove: 0
   yMove: 0
-  <moveSpeed>k__BackingField: 10
+  <moveSpeed>k__BackingField: 3
 --- !u!50 &1499729216
 Rigidbody2D:
   serializedVersion: 4
@@ -11110,7 +11110,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.83, y: -2.01, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -12657,6 +12657,7 @@ MonoBehaviour:
   enemy: {fileID: 8118109596238084352, guid: 013f0b8bb01a77946a2b2d3276e540d6, type: 3}
   lazer: {fileID: 1671516796}
   enemyStat: {fileID: 11400000, guid: 1de5a79173a35ba499f271e8f32ae936, type: 2}
+  _duration: 15
 --- !u!4 &1956802971
 Transform:
   m_ObjectHideFlags: 0
