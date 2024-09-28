@@ -14,11 +14,10 @@ public class DivisionAttack : MonoBehaviour
     public EnemyStatsSo enemyStat;
 
     private Transform _playerTrm;
-    private Pooling[] _division = new Pooling[2];
+    private Pooling[] _division;
     private bool isChase = false;
 
     [SerializeField] private float _duration = 5f;
-    private float _currentTime;
 
     private void Awake()
     {
@@ -38,77 +37,68 @@ public class DivisionAttack : MonoBehaviour
 
     public void DivisionPhase1()
     {
-        if (Count <= 10)
+        enemy = PoolManager.Instance.Pop("Division") as Pooling;
+
+        if (enemy != null)
         {
-            enemy = PoolManager.Instance.Pop("Division") as Pooling;
+            int rand = Random.Range(0, _pushZone.Length);
 
-            if (enemy != null)
-            {
-                int rand = Random.Range(0, _pushZone.Length);
+            float offsetX = Random.Range(-(_pushZone[rand].localScale.x / 2) + 2,
+                (_pushZone[rand].localScale.x / 2) - 2);
 
-                float offsetX = Random.Range(-(_pushZone[rand].localScale.x / 2) + 2, 
-                    (_pushZone[rand].localScale.x / 2) - 2);
+            enemy.transform.rotation = _pushZone[rand].transform.rotation;
 
-                enemy.transform.rotation = _pushZone[rand].transform.rotation;
+            Vector3 offset = new Vector3(offsetX,
+                _pushZone[rand].localScale.y - 0.5f);
 
-                Vector3 offset = new Vector3(offsetX, 
-                    _pushZone[rand].localScale.y - 0.5f);
+            if (enemy.transform.rotation.z != 0)
+                offset = new Vector3(_pushZone[rand]
+                    .localScale.y - 0.5f, offsetX);
 
-                if (enemy.transform.rotation.z != 0)
-                    offset = new Vector3(_pushZone[rand]
-                        .localScale.y - 0.5f, offsetX);
+            enemy.transform.position = _pushZone[rand].localPosition + offset;
+            Count++;
 
-                enemy.transform.position = _pushZone[rand].localPosition + offset;
-                Count++;
-
-                StartCoroutine(LazerShootingRoutine(rand));
-            }
+            StartCoroutine(LazerShootingRoutine(rand, enemy));
         }
     }
 
     public void DivisionPhase2()
     {
-        if (Count <= 10)
+        _division = new Pooling[2];
+
+        for (int i = 0; i < 2; i++)
         {
-            for(int i = 0; i < 2; i++)
-            {
-                enemy = PoolManager.Instance.Pop("Division") as Pooling;
+            enemy = PoolManager.Instance.Pop("Division") as Pooling;
 
-                if (enemy != null)
-                {
-                    _division[i] = enemy;
-                }
 
-                _division[i].transform.position = _pushZone[i].transform.position;
-            }
+            if (enemy != null)
+                _division[i] = enemy;
 
-            _division[1].transform.rotation = Quaternion.Euler(0, 0, 90);
+            Debug.Log(i + "¹ø¤Š ³ª´°¼À");
+            _division[i].transform.position = _pushZone[i].transform.position;
         }
 
-        StartCoroutine(DivisionPhase2Attack());
+        _division[1].transform.rotation = Quaternion.Euler(0, 0, 90);
+
         isChase = true;
+        StartCoroutine(DivisionPhase2Attack(_division));
     }
 
     private void ChasePlayer()
     {
-        if (_currentTime < _duration)
+        for (int i = 0; i < 2; i++)
         {
-            for (int i = 0; i < 2; i++)
-            {
-                if (i == 0)
-                    _division[i].transform.DOMove(new Vector2(_playerTrm.position.x, _pushZone[i].position.y), 1f);
-                else
-                    _division[i].transform.DOMove(new Vector2(_pushZone[i].position.x, _playerTrm.position.y), 1f);
-            }
-            _currentTime += Time.deltaTime;
+            if (i == 0)
+                _division[i].transform.DOMove(new Vector2(_playerTrm.position.x, _pushZone[i].position.y), 1f);
+            else
+                _division[i].transform.DOMove(new Vector2(_pushZone[i].position.x, _playerTrm.position.y), 1f);
         }
-
-        if (_currentTime > _duration) isChase = false;
-            _currentTime = 0;
     }
 
-    private IEnumerator DivisionPhase2Attack()
+    private IEnumerator DivisionPhase2Attack(Pooling[] enemy)
     {
+        StartCoroutine(WaitPhase2());
+
         while (isChase)
         {
             for (int i = 0; i < 2; i++)
@@ -128,9 +118,20 @@ public class DivisionAttack : MonoBehaviour
                     _division[i].transform);
             }
         }
+
+        foreach(Pooling pool in enemy)
+        {
+            PoolManager.Instance.Push(pool);
+        }
     }
 
-    private IEnumerator LazerShootingRoutine(int rand)
+    private IEnumerator WaitPhase2()
+    {
+        yield return new WaitForSeconds(_duration);
+        isChase = false;
+    }
+
+    private IEnumerator LazerShootingRoutine(int rand, Pooling enemy)
     {
         lazer.ShotExpolmeArr(
             new[] { enemy.transform },
@@ -143,5 +144,9 @@ public class DivisionAttack : MonoBehaviour
             new[] { enemy.transform },
             new[] { _pushZone[rand].rotation }, 
             enemy.transform);
+
+        yield return new WaitForSeconds(2f);
+
+        PoolManager.Instance.Push(enemy);
     }
 }
