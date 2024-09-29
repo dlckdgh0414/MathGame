@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         _currentEnemy = _enemyList[0];
 
         state = TrunState.start;
-        _enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
+       // _enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
 
         _itemCount = _itemBag.transform.childCount;
         _randomInt = UnityEngine.Random.Range(0, _itemCount);
@@ -164,7 +164,7 @@ public class GameManager : MonoBehaviour
         {
             state = TrunState.win;
             _itemList[_randomInt].SetActive(true);
-            _randomInt = UnityEngine.Random.Range(0, 9);
+            _randomInt = UnityEngine.Random.Range(0, _itemCount);
             _isFinish = false;
             OnBattleEnd?.Invoke();
         }
