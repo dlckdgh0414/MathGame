@@ -4,9 +4,9 @@ using UnityEngine.Networking;
 
 public class ProbelmsReader : MonoBehaviour
 {
-    const string URL = "https://docs.google.com/spreadsheets/d/1dUTpj2FoPiGo1JKVeHw8iyc3zGqvFQukfNoA8TDTl6c/export?format=tsv&range=A2:F";
+    const string URL = "https://docs.google.com/spreadsheets/d/1dUTpj2FoPiGo1JKVeHw8iyc3zGqvFQukfNoA8TDTl6c/export?format=tsv&range=A2:F    ";
     [SerializeField] private MathProblemSO _mathProblemSO;
-
+    public bool _isComplete { get; set; } = false;
 
     private IEnumerator Start()
     {
@@ -50,6 +50,8 @@ public class ProbelmsReader : MonoBehaviour
             _mathProblemSO.Choice3.Add(columns[3]);
             _mathProblemSO.Choice4.Add(columns[4]);
             _mathProblemSO.ResultNumber.Add(columns[5]);
+
+            _isComplete = true;
 
         }
     }

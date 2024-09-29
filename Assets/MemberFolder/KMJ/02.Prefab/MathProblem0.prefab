@@ -752,6 +752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mathProblemSO: {fileID: 11400000, guid: 21c79c52b2999af40a5b8ea3860f8d2f, type: 2}
+  _problemReader: {fileID: 0}
   ControllButton:
   - {fileID: 9115975699737334384}
   - {fileID: 7483196730882408254}
