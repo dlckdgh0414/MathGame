@@ -26,14 +26,18 @@ public class GameManager : MonoBehaviour
 
     public EnemyStatSOList enemyStatList;
 
+
+    [SerializeField] private GameObject _EndUI;
     private List<EnemyStatsSo> _enemyList = new List<EnemyStatsSo>();
     public List<GameObject> _itemList = new List<GameObject>();
     private EnemyStatsSo _currentEnemy;
     [SerializeField] private GameObject _problemUI;
+    private GameObject _player;
     private Enemy _enemy;
     public bool _isFinish;
     public bool _EnemyTrunEnd = false;
     private bool _isOpen;
+    private static int _enemyCount = 0;
     [SerializeField] private GameObject _itemBag;
 
     private void OnEnable()
@@ -106,7 +110,8 @@ public class GameManager : MonoBehaviour
         {
             _enemyList.Add(enemy);
         }
-        _currentEnemy = _enemyList[0];
+
+        _currentEnemy = _enemyList[_enemyCount];
 
         state = TrunState.start;
         _enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
@@ -117,6 +122,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        _player = GameObject.Find("Player");
         _isOpen = false;
         state = TrunState.playerTurn;
 
@@ -135,6 +141,11 @@ public class GameManager : MonoBehaviour
     private void BattleStart()
     {
         state = TrunState.playerTurn;
+    }
+
+    private void EnemyDie()
+    {
+        isDead = _currentEnemy.Hp <= 0;
     }
 
     public void PlayerAttackButton() //���ݹ�ư Ŭ��
@@ -165,6 +176,8 @@ public class GameManager : MonoBehaviour
             state = TrunState.win;
             _itemList[_randomInt].SetActive(true);
             _randomInt = UnityEngine.Random.Range(0, _itemCount);
+            _currentEnemy = _enemyList[_enemyCount += 1];
+            isDead = false;
             _isFinish = false;
             OnBattleEnd?.Invoke();
         }
@@ -183,6 +196,17 @@ public class GameManager : MonoBehaviour
         }
 
         UsingItem();
+    }
+
+    public void PlayerDie()
+    {
+        _player.TryGetComponent(out Health health);
+
+        if(health.Hp <= 0)
+        {
+            _player.SetActive(false);
+            _EndUI.SetActive(true);
+        }
     }
 
     public void UsingItem()
@@ -213,6 +237,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+       PlayerDie();
        PlayerAttackCheck();
+        EnemyDie();
     }
 }
