@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
 
     public EnemyStatSOList enemyStatList;
 
-
     [SerializeField] private GameObject _EndUI;
     private List<EnemyStatsSo> _enemyList = new List<EnemyStatsSo>();
     public List<GameObject> _itemList = new List<GameObject>();
@@ -97,7 +96,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-
         if (Instance == null)
         {
             Instance = this;
@@ -114,6 +112,7 @@ public class GameManager : MonoBehaviour
         _currentEnemy = _enemyList[_enemyCount];
 
         state = TrunState.start;
+
         _enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
 
        _itemCount = _itemBag.transform.childCount;
