@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     private void HandleBattleEnd()
     {
-        Debug.Log("���� ����");
+        
     }
 
     private void HandlAttackEnd()
