@@ -39,17 +39,15 @@ public class SelectMathButton : MonoBehaviour
             _mathProblem.SetActive(false);
             GameManager.Instance.PlayerAttackCheck();
         }
-    }
 
-    public void SelectFalse()
-    {
-        if (_isGuess == false)
+        else if(_isGuess == false)
         {
-            _timeSlider.value = 20;
-            GameManager.Instance._isFinish = true;
-            Debug.Log("Finished (SelectFalse)");
-            _mathProblem.SetActive(false);
-            GameManager.Instance.PlayerAttackCheck();
+                _timeSlider.value = 20;
+                GameManager.Instance._isFinish = true;
+                Debug.Log("Finished (SelectFalse)");
+                _mathProblem.SetActive(false);
+                GameManager.Instance.PlayerAttackCheck();
         }
     }
+
 }

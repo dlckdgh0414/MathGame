@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     public void HandleAttackStart()
     {
         Debug.Log(_enemy._enemystats.EnemyName);
-        switch (_enemy._enemystats.EnemyName)
+        switch (_enemy._enemystats.EnemyName)   
         {
             case EnemyStateEnum.plus:
                 Debug.Log("Enemy State: plus");
@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         _currentEnemy = _enemyList[0];
 
         state = TrunState.start;
-       // _enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
+        _enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
 
        _itemCount = _itemBag.transform.childCount;
         _randomInt = UnityEngine.Random.Range(0, _itemCount);
