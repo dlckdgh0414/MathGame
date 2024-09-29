@@ -14,7 +14,7 @@ public class Enemy : EnemySetting
 
     public UnityEvent EnemyAttackEvent; //Enemy에 맞는 공격 넣기
 
-    private void Start()
+    private void OnEnable()
     {
         HelathCompo.Hp = _enemystats.Hp;
     }

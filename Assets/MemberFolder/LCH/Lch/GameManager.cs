@@ -39,6 +39,10 @@ public class GameManager : MonoBehaviour
     private static int _enemyCount = 0;
     [SerializeField] private GameObject _itemBag;
 
+    [SerializeField] Enemy[] _enemyPrefab;
+
+    private int cut = 0;
+
     private void OnEnable()
     {
         OnEnemyAttackStart += HandleAttackStart;
@@ -48,7 +52,8 @@ public class GameManager : MonoBehaviour
 
     private void HandleBattleEnd()
     {
-        
+        state = TrunState.playerTurn;
+        cut++;
     }
 
     private void HandlAttackEnd()
@@ -113,10 +118,9 @@ public class GameManager : MonoBehaviour
 
         state = TrunState.start;
 
-        _enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
-
        _itemCount = _itemBag.transform.childCount;
         _randomInt = UnityEngine.Random.Range(0, _itemCount);
+
     }
 
     private void Start()
@@ -137,9 +141,12 @@ public class GameManager : MonoBehaviour
         _problemUI.SetActive(false);
     }
 
-    private void BattleStart()
+
+    public void BattleStart()
     {
+        Instantiate(_enemyPrefab[cut], new Vector3(-0.02f, 3.21f, 0), Quaternion.identity);
         state = TrunState.playerTurn;
+        _enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>(); 
     }
 
     private void EnemyDie()
