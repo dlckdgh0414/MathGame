@@ -25,12 +25,12 @@ public class PushAttack : MonoBehaviour
             if (item != null)
             {
                 PoolManager.Instance.Push(item);
-                GameManager.Instance._EnemyTrunEnd = true;
             }
             else
             {
                 Destroy(gameObject);
             }
+
         }
 
     }

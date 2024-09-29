@@ -18,7 +18,6 @@ public class MathProblem : MonoBehaviour
     private void OnEnable()
     {
         _randomInt = Random.Range(0, 4);
-        Debug.Log(_randomInt);
     }
 
     private void Start()

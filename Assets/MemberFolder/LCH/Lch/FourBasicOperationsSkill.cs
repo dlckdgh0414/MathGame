@@ -14,6 +14,7 @@ public class FourBasicOperationsSkill : MonoBehaviour
     public UnityEvent Phase1Attack4Event;
     public UnityEvent DivisonAttackEvent;
     public UnityEvent LastPhaseEvent;
+    public UnityEvent DivisonAttackEvent2;
     private PlusMove2 _plusMove;
     public Pooling enemy2;
     public Pooling enemy3;
@@ -23,26 +24,32 @@ public class FourBasicOperationsSkill : MonoBehaviour
     {
         _enmyOwer = GetComponentInParent<Enemy>();
     }
+
     public void Pases()
     {
         if (_enmyOwer.HelathCompo.Hp > 90)
         {
             Pase1();
         }
-        else if (_enmyOwer.HelathCompo.Hp <= 90)
+        else if (_enmyOwer.HelathCompo.Hp <= 90&&_enmyOwer.HelathCompo.Hp > 5)
         {
             Pase2();
         }
-        else if (_enmyOwer.HelathCompo.Hp <= 5)
+        if (_enmyOwer.HelathCompo.Hp <= 5)
         {
-            LastPhaseEvent?.Invoke();
+            LastPhaseAttack();
         }
     }
 
+    private void LastPhaseAttack()
+    {
+        Debug.Log("마지막패턴");
+        LastPhaseEvent?.Invoke();
+    }
 
     private void Pase1()
     {
-        int rand = Random.Range(0, 5);
+        int rand = Random.Range(1, 5);
 
         switch (rand)
         {
@@ -74,7 +81,6 @@ public class FourBasicOperationsSkill : MonoBehaviour
                 enemy2.gameObject.transform.position = _boasPos[0].position;
             }
         yield return new WaitForSeconds(0.1F);
-        GameManager.Instance._EnemyTrunEnd = true;
     }
 
     private IEnumerator Pase1Attack2()
@@ -82,25 +88,37 @@ public class FourBasicOperationsSkill : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             yield return new WaitForSeconds(0.5f);
-            PoolManager.Instance.Pop("PlusAttack3");
+            enemy = PoolManager.Instance.Pop("PlusAttack3") as Pooling;
+            if (enemy != null)
+            {
+                enemy.gameObject.transform.position = transform.position;
+                {
+                }
+            }
         }
+            yield return new WaitForSeconds(3.5f);
+            GameManager.Instance._EnemyTrunEnd = true;
     }
 
     private IEnumerator Pase1Attack1()
     {
-        PoolManager.Instance.Pop("PlusAttackBase");
+       enemy = PoolManager.Instance.Pop("PlusAttackBase") as Pooling;
+        if(enemy != null)
+        {
+            enemy.gameObject.transform.position = transform.position;
+        }
         DivisonAttackEvent?.Invoke();
         yield return new WaitForSeconds(2f);
         Ipoolable item = GameObject.FindWithTag("EnemyPrefab").GetComponent<Ipoolable>();
         PoolManager.Instance.Push(item);
+        yield return new WaitForSeconds(5f);
 
         GameManager.Instance._EnemyTrunEnd = true;
-
     }
 
     private void Pase2()
     {
-        int rand = Random.Range(0, 4);
+        int rand = Random.Range(1, 5);
         switch (rand)
         {
             case 1:
@@ -111,6 +129,13 @@ public class FourBasicOperationsSkill : MonoBehaviour
                 break;
             case 3:
                 StartCoroutine(Phase2Attack3());
+                break;
+            case 4:
+                Phase1Attack4Event?.Invoke();
+                for (int i = 0; i < 5; i++)
+                {
+                    DivisonAttackEvent2?.Invoke();
+                }
                 break;
         }
     }
@@ -139,7 +164,7 @@ public class FourBasicOperationsSkill : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(0.1F);
+        yield return new WaitForSeconds(3F);
         GameManager.Instance._EnemyTrunEnd = true;
     }
 
@@ -150,18 +175,24 @@ public class FourBasicOperationsSkill : MonoBehaviour
             yield return new WaitForSeconds(1f);
             PoolManager.Instance.Pop("PlusAttack3");
         }
+        yield return new WaitForSeconds(6f);
+        GameManager.Instance._EnemyTrunEnd = true;
     }
 
     private IEnumerator Phase2Attack()
     {
-        PoolManager.Instance.Pop("PlusAttackBase");
+        enemy = PoolManager.Instance.Pop("PlusAttackBase") as Pooling;
+        if (enemy != null)
+        {
+            enemy.gameObject.transform.position = transform.position;
+        }
         DivisonAttackEvent?.Invoke();
         _plusMove = GameObject.FindWithTag("EnemyPrefab").GetComponent<PlusMove2>();
         _plusMove._moveSpeed = 8f;
         yield return new WaitForSeconds(2f);
         Ipoolable item = GameObject.FindWithTag("EnemyPrefab").GetComponent<Ipoolable>();
         PoolManager.Instance.Push(item);
-
+        yield return new WaitForSeconds(5f);
         GameManager.Instance._EnemyTrunEnd = true;
     }
 }

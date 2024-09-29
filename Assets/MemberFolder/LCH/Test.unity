@@ -8700,6 +8700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pool: {fileID: 0}
+  isEnd: 0
 --- !u!114 &1405989854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9461,6 +9462,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  DivisonAttackEvent2:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1732383494}
+        m_TargetAssemblyTypeName: DivisionAttack, Assembly-CSharp
+        m_MethodName: DivisionPhase1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   enemy2: {fileID: 0}
   enemy3: {fileID: 0}
   enemy4: {fileID: 0}
@@ -9799,8 +9815,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809879791}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.052483022, y: -1.8652462, z: -9.963521}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.05248308, y: -1.8652463, z: -9.963521}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

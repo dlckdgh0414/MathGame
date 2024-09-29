@@ -32,7 +32,6 @@ public class PoolManager : MonoSingleton<PoolManager>
 
         Pool pool = new Pool(poolable, transform, so.count);
         _pools.Add(poolable.PoolName, pool);
-        Debug.Log($"{poolable.PoolName} : {pool}");
     }
 
     public Ipoolable Pop(string itemName)

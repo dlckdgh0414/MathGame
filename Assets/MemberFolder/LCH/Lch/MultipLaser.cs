@@ -16,19 +16,16 @@ public class MultipLaser : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("M");
         //StartCoroutine(LaserShot());
     }
 
     private void OnEnable()
     {
-        Debug.Log("M2");
         StartCoroutine(LaserShot());
     }
 
     private void OnDisable()
     {
-        Debug.Log("MD");
     }
 
     private IEnumerator LaserShot()
