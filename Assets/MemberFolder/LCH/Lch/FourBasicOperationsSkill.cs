@@ -24,13 +24,6 @@ public class FourBasicOperationsSkill : MonoBehaviour
     {
         _enmyOwer = GetComponentInParent<Enemy>();
     }
-
-    private void Start()
-    {
-        Phase1Attack4Event?.Invoke();
-        DivisonAttackEvent?.Invoke();
-    }
-
     public void Pases()
     {
         if (_enmyOwer.HelathCompo.Hp > 90)

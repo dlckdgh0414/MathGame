@@ -90,7 +90,7 @@ Transform:
   m_GameObject: {fileID: 3282515877450353073}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.29, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -192,10 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941d91e143f7df84cb78efeaa3a30e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 8118109596238084352, guid: 013f0b8bb01a77946a2b2d3276e540d6, type: 3}
-  lazer: {fileID: 4009506849639080135}
-  enemyStat: {fileID: 11400000, guid: 1de5a79173a35ba499f271e8f32ae936, type: 2}
-  _duration: 5
+  enemyStat: {fileID: 11400000, guid: 983950a3f61964f469190bf8fe034381, type: 2}
 --- !u!114 &4009506849639080135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +207,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lazer: {fileID: 0}
   lazerex: {fileID: 0}
-  player: {fileID: 0}
 --- !u!1 &4536683656563810704
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,6 +318,7 @@ MonoBehaviour:
   FinalDeadEvent:
     m_PersistentCalls:
       m_Calls: []
+  _enemyHp: {fileID: 4060941461694562067, guid: 57ec6656980528b448317c26ad002a7d, type: 3}
   _enemystats: {fileID: 11400000, guid: 1b4942e7f86257b45b614f6e9c4cccce, type: 2}
   EnemyAttackEvent:
     m_PersistentCalls:
