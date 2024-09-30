@@ -4441,6 +4441,8 @@ MonoBehaviour:
   _enemyPrefab:
   - {fileID: 758883848035339761, guid: 38f80e8d292cda64c88957a65ee22209, type: 3}
   - {fileID: 7654013073863881965, guid: 2573ac91e2244774882bad3f3cd91469, type: 3}
+  - {fileID: 7654013073863881965, guid: 2573ac91e2244774882bad3f3cd91469, type: 3}
+  - {fileID: 3705009614716610970, guid: 8fcb87826d3221749991356871d828bd, type: 3}
   cut: 0
 --- !u!114 &1616133987
 MonoBehaviour:
