@@ -52,8 +52,8 @@ public class GameManager : MonoBehaviour
 
     private void HandleBattleEnd()
     {
-        state = TrunState.playerTurn;
-        cut++;
+        state = TrunState.start;
+        BattleStart();
     }
 
     private void HandlAttackEnd()
@@ -151,7 +151,20 @@ public class GameManager : MonoBehaviour
 
     private void EnemyDie()
     {
-        isDead = _currentEnemy.Hp <= 0;
+        isDead = _enemy.HelathCompo.Hp <= 0;
+
+        Debug.Log($"Dead : {isDead} Cut : {cut}");
+
+        if (isDead)
+        {
+            state = TrunState.win;
+            _itemList[_randomInt].SetActive(true);
+            _randomInt = UnityEngine.Random.Range(0, _itemCount);
+            cut++;
+            isDead = false;
+            _isFinish = false;
+            OnBattleEnd?.Invoke();
+        }
     }
 
     public void PlayerAttackButton() //���ݹ�ư Ŭ��
@@ -169,29 +182,16 @@ public class GameManager : MonoBehaviour
 
     public void PlayerAttackCheck()
     {
-        if (_isFinish) //�̰� true�� �ʹ� �ߵǿ�..
+        if (_isFinish) 
         {
-            PlayerAttack(); //�����ѵ� EnemyTrune���� �ѱ�� �޼���
+            PlayerAttack(); 
         }
     }
 
     public void PlayerAttack()
     {
-        if (isDead)
-        {
-            state = TrunState.win;
-            _itemList[_randomInt].SetActive(true);
-            _randomInt = UnityEngine.Random.Range(0, _itemCount);
-            _currentEnemy = _enemyList[_enemyCount += 1];
-            isDead = false;
-            _isFinish = false;
-            OnBattleEnd?.Invoke();
-        }
-        else
-        {
             _isFinish = false;
             OnEnemyAttackStart?.Invoke();
-        }
     }
 
     public void PlayerItemButton()
@@ -245,6 +245,6 @@ public class GameManager : MonoBehaviour
     {
        PlayerDie();
        PlayerAttackCheck();
-        EnemyDie();
+       EnemyDie();
     }
 }
