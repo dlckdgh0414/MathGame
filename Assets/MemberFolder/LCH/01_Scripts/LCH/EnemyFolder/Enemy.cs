@@ -19,7 +19,6 @@ public class Enemy : EnemySetting
     private void Start()
     {
         HelathCompo.Hp = _enemystats.Hp;
-        _enemyHp.fillAmount += HelathCompo.Hp;
     }
 
     private void Update()
