@@ -22,7 +22,7 @@ public class ScreenTransition : MonoBehaviour
     public void Transition()
     {
         DOTween.To(() => endValue, end =>
-        _transitionImage.material.SetFloat("_Strength", end), startValue, 0.7f)
+        _transitionImage.material.SetFloat("_Strength", end), startValue, 0.6f)
             .OnComplete(() =>
             {
                 OnSceneTransition?.Invoke();

@@ -10,12 +10,16 @@ public class TitleButton : MonoBehaviour
     private GameObject _player;
     private GameObject _manager;
 
+    [SerializeField] private ScreenTransition _transition;
+
     private void Awake()
     {
         _manager = GameObject.Find("Manager");
         _player = GameObject.Find("Player");
         _titleScene = GameObject.Find("*****TitleScreen*****");
         _gameScene = GameObject.Find("*****FightScreen*****");
+
+        _transition.OnSceneTransition += SelectEnter;
     }
 
     private void Start()

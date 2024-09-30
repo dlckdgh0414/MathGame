@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     public Action OnEnemyAttackStart;
     public event Action OnEnemyAttackEnd;
-    public event Action OnBattleEnd;
+    public Action OnBattleEnd;
     public event Action OnItemUse;
 
     public EnemyStatSOList enemyStatList;
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Enemy[] _enemyPrefab;
 
-    private int cut = 0;
+    public int cut = 0;
 
     private void OnEnable()
     {
@@ -51,15 +51,21 @@ public class GameManager : MonoBehaviour
     }
 
     private void HandleBattleEnd()
-    {
-        state = TrunState.playerTurn;
-        cut++;
+    { 
+        state = TrunState.win;
+        isDead = false;
+        _itemList[_randomInt].SetActive(true);
+        _randomInt = UnityEngine.Random.Range(0, _itemCount);
+        _isFinish = false;
+        isDead = false;
+        cut += 1;
     }
 
     private void HandlAttackEnd()
     {
         state = TrunState.playerTurn;
         _EnemyTrunEnd = false;
+        
     }
 
     public void HandleAttackStart()
@@ -144,14 +150,16 @@ public class GameManager : MonoBehaviour
 
     public void BattleStart()
     {
-        Instantiate(_enemyPrefab[cut], new Vector3(-0.02f, 3.21f, 0), Quaternion.identity);
+       Instantiate(_enemyPrefab[cut], new Vector3(-0.02f, 3.21f, 0), Quaternion.identity);
+
         state = TrunState.playerTurn;
         _enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>(); 
     }
 
     private void EnemyDie()
     {
-        isDead = _currentEnemy.Hp <= 0;
+        isDead = _enemy.HelathCompo.Hp <= 0;
+        Debug.Log($"Dead : {isDead} Cut : {cut}");
     }
 
     public void PlayerAttackButton() //���ݹ�ư Ŭ��
@@ -169,29 +177,16 @@ public class GameManager : MonoBehaviour
 
     public void PlayerAttackCheck()
     {
-        if (_isFinish) //�̰� true�� �ʹ� �ߵǿ�..
+        if (_isFinish) 
         {
-            PlayerAttack(); //�����ѵ� EnemyTrune���� �ѱ�� �޼���
+            PlayerAttack(); 
         }
     }
 
     public void PlayerAttack()
     {
-        if (isDead)
-        {
-            state = TrunState.win;
-            _itemList[_randomInt].SetActive(true);
-            _randomInt = UnityEngine.Random.Range(0, _itemCount);
-            _currentEnemy = _enemyList[_enemyCount += 1];
-            isDead = false;
-            _isFinish = false;
-            OnBattleEnd?.Invoke();
-        }
-        else
-        {
             _isFinish = false;
             OnEnemyAttackStart?.Invoke();
-        }
     }
 
     public void PlayerItemButton()
@@ -243,8 +238,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-       PlayerDie();
+        PlayerDie();
        PlayerAttackCheck();
-        EnemyDie();
     }
 }
