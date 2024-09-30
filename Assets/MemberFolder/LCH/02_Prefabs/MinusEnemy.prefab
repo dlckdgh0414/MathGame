@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1935926566123991393}
   - component: {fileID: 1492753155426870090}
-  - component: {fileID: 788442217575309507}
   - component: {fileID: 3386342028754978564}
   - component: {fileID: 3276834682783380444}
+  - component: {fileID: 7250254672777657315}
   m_Layer: 0
   m_Name: MinusEnemy
   m_TagString: Enemy
@@ -87,20 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &788442217575309507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4788581635259312297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62017bdda4a159f48926733f51c51128, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 8261056810229632141, guid: 3dd3cfb2c23549e459f641808e42e93b, type: 3}
-  enemyStat: {fileID: 11400000, guid: ad6912df75d6f084e90ffc1ed728e39b, type: 2}
 --- !u!114 &3386342028754978564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,3 +119,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Hp>k__BackingField: 0
+--- !u!114 &7250254672777657315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4788581635259312297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc857d41f9d1697459f734bea2011d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentStat: {fileID: 11400000, guid: ad6912df75d6f084e90ffc1ed728e39b, type: 2}

@@ -10,12 +10,12 @@ public class MinusEnemy : MonoBehaviour
     public Pooling enemy;
     public EnemyStatsSo enemyStat;
 
-    private Image _image;
+    private SpriteRenderer _sprite;
     private Sequence seq;
 
     private void Awake()
     {
-        _image = GetComponent<Image>();
+        _sprite = GetComponent<SpriteRenderer>();
         seq = DOTween.Sequence();
     }
 
@@ -23,7 +23,7 @@ public class MinusEnemy : MonoBehaviour
     {
         StartCoroutine(EnemyAttackSkill());
 
-        seq.Append(_image.rectTransform.DOAnchorPosX(100, 1f)
+        seq.Append(_sprite.transform.DOMoveX(1, 1f)
             .SetEase(Ease.InOutCubic)
             .SetLoops(-1, LoopType.Yoyo));
     }
