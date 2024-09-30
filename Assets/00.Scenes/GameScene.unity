@@ -4561,8 +4561,8 @@ MonoBehaviour:
   _enemyPrefab:
   - {fileID: 758883848035339761, guid: 38f80e8d292cda64c88957a65ee22209, type: 3}
   - {fileID: 7654013073863881965, guid: 2573ac91e2244774882bad3f3cd91469, type: 3}
-  - {fileID: 6755452831859198054, guid: 114dbf1f63f8ba44aace9c627f90744e, type: 3}
-  - {fileID: 392974882579613892, guid: 66ec9fb5106645947ab16b335fc6321c, type: 3}
+  - {fileID: 3386342028754978564, guid: 72b82fefdd0ac13488a5e5402f6c13dd, type: 3}
+  - {fileID: 8654398667446077933, guid: f138ba963e0e41b4a98a68870b1ae354, type: 3}
   - {fileID: 3705009614716610970, guid: 8fcb87826d3221749991356871d828bd, type: 3}
   cut: 0
 --- !u!114 &1616133987
@@ -5452,10 +5452,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff5d3271a4a255419df2b886d40bec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <_dashSpeed>k__BackingField: 15
-  _playerinput: {fileID: 11400000, guid: 70c5df65452b90d4684c4a3d5ae663f5, type: 2}
-  _playerMove: {fileID: 1923179630}
-  isDash: 0
 --- !u!114 &1923179630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5998,6 +5994,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38451acfd4e6f014c96447571c96a6f3, type: 3}
+--- !u!1001 &1008597982537725593
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1617241402190572605, guid: f138ba963e0e41b4a98a68870b1ae354, type: 3}
+      propertyPath: m_Name
+      value: DivisionEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675046779215556438, guid: f138ba963e0e41b4a98a68870b1ae354, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.92475486
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675046779215556438, guid: f138ba963e0e41b4a98a68870b1ae354, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 18.34224
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675046779215556438, guid: f138ba963e0e41b4a98a68870b1ae354, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675046779215556438, guid: f138ba963e0e41b4a98a68870b1ae354, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675046779215556438, guid: f138ba963e0e41b4a98a68870b1ae354, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675046779215556438, guid: f138ba963e0e41b4a98a68870b1ae354, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675046779215556438, guid: f138ba963e0e41b4a98a68870b1ae354, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675046779215556438, guid: f138ba963e0e41b4a98a68870b1ae354, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675046779215556438, guid: f138ba963e0e41b4a98a68870b1ae354, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675046779215556438, guid: f138ba963e0e41b4a98a68870b1ae354, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654398667446077933, guid: f138ba963e0e41b4a98a68870b1ae354, type: 3}
+      propertyPath: EnemyAttackEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2180269012925230850, guid: f138ba963e0e41b4a98a68870b1ae354, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f138ba963e0e41b4a98a68870b1ae354, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -6012,3 +6069,4 @@ SceneRoots:
   - {fileID: 1421356657}
   - {fileID: 2061781519}
   - {fileID: 1682534647}
+  - {fileID: 1008597982537725593}
