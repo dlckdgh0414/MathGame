@@ -22,8 +22,6 @@ public class TestPlayer : MonoBehaviour
     {
         if(_health.Hp <= 0)
         {
-            GameObject.FindWithTag("Enemy").SetActive(false);
-            gameObject.SetActive(false);
             _endUI.SetActive(true);
         }
     }
