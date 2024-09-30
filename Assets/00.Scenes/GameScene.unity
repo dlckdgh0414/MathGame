@@ -1284,6 +1284,7 @@ MonoBehaviour:
   _titleScene: {fileID: 303072924}
   _player: {fileID: 1923179627}
   _manager: {fileID: 1616133983}
+  _transition: {fileID: 0}
 --- !u!1 &311251650
 GameObject:
   m_ObjectHideFlags: 0
@@ -6865,6 +6866,7 @@ MonoBehaviour:
   _enemyPrefab:
   - {fileID: 758883848035339761, guid: 38f80e8d292cda64c88957a65ee22209, type: 3}
   - {fileID: 7654013073863881965, guid: 2573ac91e2244774882bad3f3cd91469, type: 3}
+  cut: 0
 --- !u!114 &1616133987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8355,7 +8357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1923179628
 MonoBehaviour:
   m_ObjectHideFlags: 0
