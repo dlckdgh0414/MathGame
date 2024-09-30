@@ -13,13 +13,51 @@ public class MainTxt : MonoBehaviour
     {
     }
 
-    public void ClickButton()
+    public void ClickStartButton()
     {
         _manager.SetActive(true);
+        GameManager.Instance.cut = 0;
         _player.SetActive(true);
         _gameScene.SetActive(true);
         gameObject.SetActive(false);
     }
+
+    public void ClickSecondButton()
+    {
+        _manager.SetActive(true);
+        GameManager.Instance.cut = 1;
+        _player.SetActive(true);
+        _gameScene.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
+    public void ClickThirdButton()
+    {
+        _manager.SetActive(true);
+        GameManager.Instance.cut = 2;
+        _player.SetActive(true);
+        _gameScene.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
+    public void ClickFourthButton()
+    {
+        _manager.SetActive(true);
+        GameManager.Instance.cut = 3;
+        _player.SetActive(true);
+        _gameScene.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
+    public void ClickFifthButton()
+    {
+        _manager.SetActive(true);
+        GameManager.Instance.cut = 4;
+        _player.SetActive(true);
+        _gameScene.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
 
     public void ClickBack()
     {

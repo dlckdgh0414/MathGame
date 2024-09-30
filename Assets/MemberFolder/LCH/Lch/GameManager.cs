@@ -66,7 +66,6 @@ public class GameManager : MonoBehaviour
     {
         state = TrunState.playerTurn;
         _EnemyTrunEnd = false;
-
     }
 
     public void HandleAttackStart()
@@ -137,6 +136,9 @@ public class GameManager : MonoBehaviour
 
         print(_randomInt);
 
+        Instantiate(_enemyPrefab[cut], new Vector3(-0.02f, 3.21f, 0), Quaternion.identity);
+
+        Debug.Log(_enemyPrefab[cut]);
 
         for (int i = 0; i < _itemCount; i++)
         {
