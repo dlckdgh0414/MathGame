@@ -395,7 +395,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -2.3699305}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -406,7 +406,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 5.739862}
   m_EdgeRadius: 0
 --- !u!1 &120077511
 GameObject:
@@ -1280,6 +1280,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainScreen: {fileID: 1270090817}
+  _gameScene: {fileID: 737120391}
+  _titleScene: {fileID: 303072924}
+  _player: {fileID: 1923179627}
+  _manager: {fileID: 1616133983}
 --- !u!1 &311251650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,21 +1462,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5129380284028109750, guid: 8454bc0a414635c42a355d8dffebac2f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5129380284028109750, guid: 8454bc0a414635c42a355d8dffebac2f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8121045262755027917, guid: 8454bc0a414635c42a355d8dffebac2f, type: 3}
       propertyPath: m_Name
       value: MathProblem
-      objectReference: {fileID: 0}
-    - target: {fileID: 8121045262755027917, guid: 8454bc0a414635c42a355d8dffebac2f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5854,7 +5846,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -3.5548944}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5865,7 +5857,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 8.109789}
   m_EdgeRadius: 0
 --- !u!1 &1343802139
 GameObject:
@@ -6825,7 +6817,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1616133984}
   - component: {fileID: 1616133985}
-  - component: {fileID: 1616133986}
   - component: {fileID: 1616133987}
   m_Layer: 0
   m_Name: Manager
@@ -6874,19 +6865,6 @@ MonoBehaviour:
   _enemyPrefab:
   - {fileID: 758883848035339761, guid: 38f80e8d292cda64c88957a65ee22209, type: 3}
   - {fileID: 7654013073863881965, guid: 2573ac91e2244774882bad3f3cd91469, type: 3}
---- !u!114 &1616133986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1616133983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b01af3c528c57724cb204db42e8519c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mathProblemSO: {fileID: 11400000, guid: 21c79c52b2999af40a5b8ea3860f8d2f, type: 2}
 --- !u!114 &1616133987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7112,6 +7090,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636620993}
   m_CullTransparentMesh: 1
+--- !u!1 &1682534645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1682534647}
+  - component: {fileID: 1682534646}
+  m_Layer: 0
+  m_Name: ProblemReader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1682534646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682534645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b01af3c528c57724cb204db42e8519c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mathProblemSO: {fileID: 11400000, guid: 21c79c52b2999af40a5b8ea3860f8d2f, type: 2}
+--- !u!4 &1682534647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682534645}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.88296723, y: 0.9267274, z: -0.03374996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1689107856
 GameObject:
   m_ObjectHideFlags: 0
@@ -7907,7 +7930,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -4.2811656}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -7918,7 +7941,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 9.562331}
   m_EdgeRadius: 0
 --- !u!1 &1807071568
 GameObject:
@@ -8358,7 +8381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff5d3271a4a255419df2b886d40bec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <_dashSpeed>k__BackingField: 50
+  <_dashSpeed>k__BackingField: 15
   _playerinput: {fileID: 11400000, guid: 70c5df65452b90d4684c4a3d5ae663f5, type: 2}
   _playerMove: {fileID: 1923179630}
   isDash: 0
@@ -8377,7 +8400,7 @@ MonoBehaviour:
   _playerinput: {fileID: 11400000, guid: 70c5df65452b90d4684c4a3d5ae663f5, type: 2}
   xMove: 0
   yMove: 0
-  <moveSpeed>k__BackingField: 10
+  <moveSpeed>k__BackingField: 5
 --- !u!50 &1923179631
 Rigidbody2D:
   serializedVersion: 4
@@ -8404,7 +8427,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1923179632
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8512,7 +8535,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.59, y: -1.32, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -8806,13 +8829,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1848016495474612332, guid: 38451acfd4e6f014c96447571c96a6f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3017571708056718128, guid: 38451acfd4e6f014c96447571c96a6f3, type: 3}
       propertyPath: m_Name
       value: ItemBag
       objectReference: {fileID: 0}
     - target: {fileID: 3017571708056718128, guid: 38451acfd4e6f014c96447571c96a6f3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4027197405221263927, guid: 38451acfd4e6f014c96447571c96a6f3, type: 3}
       propertyPath: m_Pivot.x
@@ -8912,3 +8939,4 @@ SceneRoots:
   - {fileID: 609126843}
   - {fileID: 1421356657}
   - {fileID: 2061781519}
+  - {fileID: 1682534647}

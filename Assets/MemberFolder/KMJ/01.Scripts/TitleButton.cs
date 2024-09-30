@@ -5,18 +5,10 @@ using UnityEngine;
 public class TitleButton : MonoBehaviour
 {
     public GameObject _mainScreen; 
-    private GameObject _gameScene;
-    private GameObject _titleScene;
-    private GameObject _player;
-    private GameObject _manager;
-
-    private void Awake()
-    {
-        _manager = GameObject.Find("Manager");
-        _player = GameObject.Find("Player");
-        _titleScene = GameObject.Find("*****TitleScreen*****");
-        _gameScene = GameObject.Find("*****FightScreen*****");
-    }
+    public GameObject _gameScene;
+    public GameObject _titleScene;
+    public GameObject _player;
+    public GameObject _manager;
 
     private void Start()
     {
