@@ -2,33 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+using System;
 
 public class ScreenTransition : MonoBehaviour
 {
     [SerializeField] private Image _transitionImage;
 
-    public void Transition()
+    public event Action OnSceneTransition;
+
+    private float startValue = 0, endValue = 2;
+    private Sequence _seq;
+
+    private void Awake()
     {
-        StartCoroutine(FadeOutRoutine());
+        _seq = DOTween.Sequence();
     }
 
-    private IEnumerator FadeOutRoutine()
+    public void Transition()
     {
-        float time = 0.5f;
-        float currentTime = 0f;
-        float percent = 0;
-
-        while (percent > 0)
-        {
-            currentTime += Time.deltaTime;
-            percent = time - (currentTime / time);
-
-            float t = Mathf.Lerp(0, 2, percent);
-            _transitionImage.material.SetFloat("_Strength", percent);
-
-            yield return null;
-            Debug.Log(percent);
-        }
-        Debug.Log("bbb");
+        DOTween.To(() => endValue, end =>
+        _transitionImage.material.SetFloat("_Strength", end), startValue, 0.7f)
+            .OnComplete(() =>
+            {
+                OnSceneTransition?.Invoke();
+                DOTween.To(() => startValue, end =>
+                    _transitionImage.material.SetFloat("_Strength", end), endValue, 3f);
+            });
     }
 }
