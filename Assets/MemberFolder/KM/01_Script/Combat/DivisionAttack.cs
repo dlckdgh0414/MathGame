@@ -35,7 +35,17 @@ public class DivisionAttack : MonoBehaviour
             ChasePlayer();
     }
 
-    public void DivisionPhase1()
+    public void DivisionAttackStart()
+    {
+        int rand = Random.Range(0, 2);
+
+        if (rand == 0)
+            DivisionPhase1();
+        else
+            DivisionPhase2 ();
+    }
+
+    private void DivisionPhase1()
     {
         enemy = PoolManager.Instance.Pop("Division") as Pooling;
 
@@ -62,7 +72,7 @@ public class DivisionAttack : MonoBehaviour
         }
     }
 
-    public void DivisionPhase2()
+    private void DivisionPhase2()
     {
         _division = new Pooling[2];
 
