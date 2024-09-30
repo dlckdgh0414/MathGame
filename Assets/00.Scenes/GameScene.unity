@@ -1280,6 +1280,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainScreen: {fileID: 1270090817}
+  _gameScene: {fileID: 0}
+  _titleScene: {fileID: 0}
+  _player: {fileID: 0}
+  _manager: {fileID: 0}
   _transition: {fileID: 0}
 --- !u!1 &311251650
 GameObject:
@@ -6875,6 +6879,8 @@ MonoBehaviour:
   _enemyPrefab:
   - {fileID: 758883848035339761, guid: 38f80e8d292cda64c88957a65ee22209, type: 3}
   - {fileID: 7654013073863881965, guid: 2573ac91e2244774882bad3f3cd91469, type: 3}
+  - {fileID: 3705009614716610970, guid: 8fcb87826d3221749991356871d828bd, type: 3}
+  - {fileID: 3705009614716610970, guid: 8fcb87826d3221749991356871d828bd, type: 3}
   - {fileID: 3705009614716610970, guid: 8fcb87826d3221749991356871d828bd, type: 3}
   cut: 0
 --- !u!114 &1616133986
