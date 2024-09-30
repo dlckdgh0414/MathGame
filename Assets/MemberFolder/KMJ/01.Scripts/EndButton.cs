@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class EndButton : MonoBehaviour
 {
-
+    public GameObject gameScreen;
     public GameObject mainScreen;
     private void Start()
     {
@@ -22,7 +22,10 @@ public class EndButton : MonoBehaviour
 
     public void ClickExit()
     {
+        gameScreen.SetActive(false);
         mainScreen.SetActive(true);
         gameObject.SetActive(false);
+        GameObject.Find("Player").SetActive(false);
+        GameObject.FindWithTag("Enemy").SetActive(false);
     }
 }

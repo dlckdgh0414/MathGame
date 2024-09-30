@@ -4598,6 +4598,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2270232266238163802, guid: 11f89937d98d83747ae84cdc0ef83984, type: 3}
+      propertyPath: gameScreen
+      value: 
+      objectReference: {fileID: 737120391}
+    - target: {fileID: 2270232266238163802, guid: 11f89937d98d83747ae84cdc0ef83984, type: 3}
       propertyPath: mainScreen
       value: 
       objectReference: {fileID: 303072924}
@@ -4655,15 +4659,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8280175703731621580, guid: 11f89937d98d83747ae84cdc0ef83984, type: 3}
       propertyPath: m_text
-      value: "\uBA54\uC778\uD654\uBA74\uC73C\uB85C \uB098\uAC00\uAE30\n"
+      value: "\uD0C0\uC774\uD2C0\uD654\uBA74\uC73C\uB85C \uB098\uAC00\uAE30"
       objectReference: {fileID: 0}
     - target: {fileID: 8280175703731621580, guid: 11f89937d98d83747ae84cdc0ef83984, type: 3}
       propertyPath: m_fontSize
-      value: 40
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 8280175703731621580, guid: 11f89937d98d83747ae84cdc0ef83984, type: 3}
       propertyPath: m_fontSizeBase
-      value: 40
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 8617483494538098850, guid: 11f89937d98d83747ae84cdc0ef83984, type: 3}
       propertyPath: m_Name
