@@ -1294,7 +1294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &625854000134566614
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1414,14 +1414,14 @@ MonoBehaviour:
   _problemReader: {fileID: 0}
   ControllButton:
   - {fileID: 7337659202146070136}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 644469830177863397}
+  - {fileID: 3777919954091954478}
+  - {fileID: 3868959513482018695}
   ProblemText:
   - {fileID: 3962368405792864775}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3999111227191125396}
+  - {fileID: 1760530181235372089}
+  - {fileID: 3110824443297678933}
   problemName: {fileID: 7280070584176465809}
   _resultNumber: 
 --- !u!1 &8393071929858537511
@@ -1726,7 +1726,7 @@ RectTransform:
   m_Father: {fileID: 6231917264783029145}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -0.000001013279, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

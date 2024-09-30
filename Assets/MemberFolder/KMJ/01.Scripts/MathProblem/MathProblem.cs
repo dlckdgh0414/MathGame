@@ -31,7 +31,7 @@ public class MathProblem : MonoBehaviour
 
     private void Update()
     {
-        if(_problemReader._isComplete == true)
+        if(ProbelmsReader._isComplete == true)
         {
             print(_mathProblemSO.ResultNumber[ProblemNumber]);
 
