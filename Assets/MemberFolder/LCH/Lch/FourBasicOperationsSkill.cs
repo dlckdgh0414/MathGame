@@ -25,6 +25,12 @@ public class FourBasicOperationsSkill : MonoBehaviour
         _enmyOwer = GetComponentInParent<Enemy>();
     }
 
+    private void Start()
+    {
+        Phase1Attack4Event?.Invoke();
+        DivisonAttackEvent?.Invoke();
+    }
+
     public void Pases()
     {
         if (_enmyOwer.HelathCompo.Hp > 90)
@@ -118,26 +124,26 @@ public class FourBasicOperationsSkill : MonoBehaviour
 
     private void Pase2()
     {
-        int rand = Random.Range(1, 5);
-        switch (rand)
-        {
-            case 1:
-                StartCoroutine(Phase2Attack());
-                break;
-            case 2:
-                StartCoroutine(Phase2Attack2());
-                break;
-            case 3:
-                StartCoroutine(Phase2Attack3());
-                break;
-            case 4:
-                Phase1Attack4Event?.Invoke();
-                for (int i = 0; i < 5; i++)
+        //int rand = Random.Range(1, 5);
+        //switch (rand)
+        //{
+        //    case 1:
+        //        StartCoroutine(Phase2Attack());
+        //        break;
+        //    case 2:
+        //        StartCoroutine(Phase2Attack2());
+        //        break;
+        //    case 3:
+        //        StartCoroutine(Phase2Attack3());
+        //        break;
+        //    case 4:
+        Phase1Attack4Event?.Invoke();
+        for (int i = 0; i < 5; i++)
                 {
                     DivisonAttackEvent2?.Invoke();
                 }
-                break;
-        }
+        //        break;
+        //}
     }
 
     private IEnumerator Phase2Attack3()

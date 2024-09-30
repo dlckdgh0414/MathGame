@@ -47,7 +47,7 @@ public class DivisionAttack : MonoBehaviour
             DivisionPhase2 ();
     }
 
-    private void DivisionPhase1()
+    public void DivisionPhase1()
     {
         enemy = PoolManager.Instance.Pop("Division") as Pooling;
 
@@ -74,7 +74,7 @@ public class DivisionAttack : MonoBehaviour
         }
     }
 
-    private void DivisionPhase2()
+    public void DivisionPhase2()
     {
         _division = new Pooling[2];
 
