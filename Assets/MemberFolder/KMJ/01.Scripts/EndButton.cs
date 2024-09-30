@@ -14,12 +14,14 @@ public class EndButton : MonoBehaviour
 
     public void ClickContinue()
     {
-        SceneManager.LoadScene("GameScene");   
+        GameObject.Find("Player").TryGetComponent(out Health health);
+        health.Hp = 100;    
+        gameObject.SetActive(false);
     }
 
     public void ClickExit()
     {
-       // mainScreen.SetActive(true);
+        mainScreen.SetActive(true);
         gameObject.SetActive(false);
     }
 }

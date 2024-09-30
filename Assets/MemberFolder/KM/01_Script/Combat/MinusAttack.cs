@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MinusAttack : MonoBehaviour
 {
-    private Image _enemy;
+    private SpriteRenderer _enemyRenderer;
     private Sequence seq;
     private Pooling enemy;
 
@@ -14,7 +14,7 @@ public class MinusAttack : MonoBehaviour
 
     private void Awake()
     {
-        _enemy = GameObject.Find("Enemy").GetComponent<Image>();
+        _enemyRenderer = GameObject.FindWithTag("Enemy").GetComponent<SpriteRenderer>();
         seq = DOTween.Sequence();
     }
 
@@ -22,10 +22,10 @@ public class MinusAttack : MonoBehaviour
     {
         StartCoroutine(AttackDurationRoutine());
 
-        _enemy.rectTransform.DOAnchorPosX(-400, 1f)
+        _enemyRenderer.transform.DOMoveX(-3.75f, 1f)
            .SetEase(Ease.InOutCubic).OnComplete(() =>
            {
-               seq.Append(_enemy.rectTransform.DOAnchorPosX(400, 2f)
+               seq.Append(_enemyRenderer.transform.DOMoveX(3.75f, 2f)
                   .SetEase(Ease.InOutCubic)
                   .SetLoops(4, LoopType.Yoyo));
            });
@@ -40,7 +40,7 @@ public class MinusAttack : MonoBehaviour
 
             if (enemy != null)
             {
-                enemy.transform.position = _enemy.transform.position;
+                enemy.transform.position = _enemyRenderer.transform.position;
                 enemy.GetComponent<Rigidbody2D>().AddForce(Vector3.up * 5f, ForceMode2D.Impulse);
             }
 
@@ -48,7 +48,7 @@ public class MinusAttack : MonoBehaviour
 
             if (i == 35)
             {
-                _enemy.rectTransform.DOAnchorPosX(0, 1f).SetEase(Ease.InOutCubic);
+                _enemyRenderer.transform.DOMoveX(0, 1f).SetEase(Ease.InOutCubic);
             }
         }
     }

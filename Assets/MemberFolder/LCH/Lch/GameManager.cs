@@ -19,14 +19,14 @@ public class GameManager : MonoBehaviour
     private int _randomInt;
     private int _itemCount;
 
+    public GameObject _mainScreen;
+    public GameObject _gameScreen;
     public Action OnEnemyAttackStart;
     public event Action OnEnemyAttackEnd;
     public Action OnBattleEnd;
     public event Action OnItemUse;
 
     public EnemyStatSOList enemyStatList;
-
-    [SerializeField] private GameObject _EndUI;
     private List<EnemyStatsSo> _enemyList = new List<EnemyStatsSo>();
     public List<GameObject> _itemList = new List<GameObject>();
     private EnemyStatsSo _currentEnemy;
@@ -58,7 +58,10 @@ public class GameManager : MonoBehaviour
         _randomInt = UnityEngine.Random.Range(0, _itemCount);
         _isFinish = false;
         isDead = false;
-        BattleStart();
+        _mainScreen.SetActive(true);
+        _gameScreen.SetActive(false);
+        GameObject.FindWithTag("Enemy").SetActive(false);
+        GameObject.Find("Player").SetActive(false);
     }
 
     private void HandlAttackEnd()
@@ -162,9 +165,9 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Dead : {isDead} Cut : {cut}");
     }
 
-    public void PlayerAttackButton() //���ݹ�ư Ŭ��
+    public void PlayerAttackButton() 
     {
-        if (state != TrunState.playerTurn) // �÷��̾� ���� �ƴҶ��� ������ �������� �ʰ� �ϱ�
+        if (state != TrunState.playerTurn)
         {
             _problemUI.SetActive(false);
             return;
