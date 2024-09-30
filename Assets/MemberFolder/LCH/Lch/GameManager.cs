@@ -185,8 +185,8 @@ public class GameManager : MonoBehaviour
 
     public void PlayerAttack()
     {
-            _isFinish = false;
-            OnEnemyAttackStart?.Invoke();
+        _isFinish = false;
+       OnEnemyAttackStart?.Invoke();
     }
 
     public void PlayerItemButton()
@@ -208,6 +208,11 @@ public class GameManager : MonoBehaviour
             _player.SetActive(false);
             _EndUI.SetActive(true);
         }
+    }
+
+    private void GetItem()
+    {
+
     }
 
     public void UsingItem()

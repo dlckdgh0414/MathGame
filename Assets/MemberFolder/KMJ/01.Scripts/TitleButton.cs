@@ -5,27 +5,21 @@ using UnityEngine;
 public class TitleButton : MonoBehaviour
 {
     public GameObject _mainScreen; 
-    private GameObject _gameScene;
-    private GameObject _titleScene;
-    private GameObject _player;
-    private GameObject _manager;
+    public GameObject _gameScene;
+    public GameObject _titleScene;
+    public GameObject _player;
+    public  GameObject _manager;
 
     [SerializeField] private ScreenTransition _transition;
 
     private void Awake()
     {
-        _manager = GameObject.Find("Manager");
-        _player = GameObject.Find("Player");
-        _titleScene = GameObject.Find("*****TitleScreen*****");
-        _gameScene = GameObject.Find("*****FightScreen*****");
-
-        _transition.OnSceneTransition += SelectEnter;
+       // _transition.OnSceneTransition += SelectEnter;
     }
 
     private void Start()
     {
         _player.SetActive(false);
-        _manager.SetActive(false);
     }
 
     public void SelectEnter()
