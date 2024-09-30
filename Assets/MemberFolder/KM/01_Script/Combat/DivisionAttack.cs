@@ -140,6 +140,7 @@ public class DivisionAttack : MonoBehaviour
     private IEnumerator WaitPhase2()
     {
         yield return new WaitForSeconds(_duration);
+        GameManager.Instance._EnemyTrunEnd = true;
         isChase = false;
     }
 
@@ -159,6 +160,7 @@ public class DivisionAttack : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
+        GameManager.Instance._EnemyTrunEnd = true;
         PoolManager.Instance.Push(enemy);
     }
 }
