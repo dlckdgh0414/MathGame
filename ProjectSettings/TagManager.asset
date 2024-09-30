@@ -3,18 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - PrefabPushZone
+  - EnemyPrefab
+  - Minus2
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Prefab
+  - Bullet
+  - Push
+  - Nonpush
   - 
   - 
   - 
@@ -40,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Agent
+    uniqueID: 1800269033
+    locked: 0
+  - name: Background
+    uniqueID: 2733491949
     locked: 0
