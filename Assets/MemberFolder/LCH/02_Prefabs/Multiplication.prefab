@@ -102,6 +102,7 @@ MonoBehaviour:
   FinalDeadEvent:
     m_PersistentCalls:
       m_Calls: []
+  _enemyHp: {fileID: 4060941461694562067, guid: 57ec6656980528b448317c26ad002a7d, type: 3}
   _enemystats: {fileID: 11400000, guid: 1e77bb37d12bebd4f9477f97dcb18115, type: 2}
   EnemyAttackEvent:
     m_PersistentCalls:

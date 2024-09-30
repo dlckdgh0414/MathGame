@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 
 public enum EnemyStateEnum
@@ -8,6 +9,7 @@ public enum EnemyStateEnum
 }
 public class Enemy : EnemySetting
 {
+    [SerializeField] private Image _enemyHp;
     public StateMachine<EnemyStateEnum> StateMachine { get; set; }
 
     [field:SerializeField] public EnemyStatsSo _enemystats;
@@ -16,12 +18,15 @@ public class Enemy : EnemySetting
 
     private void Start()
     {
-        HelathCompo.Hp = _enemystats.Hp;
+        HelathCompo.Hp = _enemystats.Hp; 
+        _enemyHp.fillAmount += HelathCompo.Hp;
+        HelathCompo.MinusDamage(50f);
     }
 
     private void Update()
     {
-        if(HelathCompo.Hp <= 0)
+        _enemyHp.fillAmount = HelathCompo.Hp / _enemystats.Hp;
+        if (HelathCompo.Hp <= 0)
         {
             GameManager.Instance.isDead = true;
             GameManager.Instance.OnBattleEnd?.Invoke();

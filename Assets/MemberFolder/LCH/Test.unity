@@ -9259,8 +9259,9 @@ MonoBehaviour:
   state: 0
   isDead: 0
   useItem: 0
+  _mainScreen: {fileID: 0}
+  _gameScreen: {fileID: 0}
   enemyStatList: {fileID: 11400000, guid: 2113bd53b469402468bae527c77b28b3, type: 2}
-  _EndUI: {fileID: 0}
   _itemList: []
   _problemUI: {fileID: 37048066}
   _isFinish: 0
@@ -9936,17 +9937,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 918797919094187276, guid: 8fcb87826d3221749991356871d828bd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2889676768200898827, guid: 8fcb87826d3221749991356871d828bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2889676768200898827, guid: 8fcb87826d3221749991356871d828bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.342043
+      value: 2.86
       objectReference: {fileID: 0}
     - target: {fileID: 2889676768200898827, guid: 8fcb87826d3221749991356871d828bd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9980,10 +9977,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3518418364751114127, guid: 8fcb87826d3221749991356871d828bd, type: 3}
-      propertyPath: enemyStat
+    - target: {fileID: 3705009614716610970, guid: 8fcb87826d3221749991356871d828bd, type: 3}
+      propertyPath: _enemyHp
       value: 
-      objectReference: {fileID: 11400000, guid: 983950a3f61964f469190bf8fe034381, type: 2}
+      objectReference: {fileID: 4060941461694562067, guid: 57ec6656980528b448317c26ad002a7d, type: 3}
     - target: {fileID: 4536683656563810704, guid: 8fcb87826d3221749991356871d828bd, type: 3}
       propertyPath: m_Name
       value: FourBasicOperations

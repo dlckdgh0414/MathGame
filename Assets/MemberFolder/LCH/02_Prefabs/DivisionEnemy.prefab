@@ -116,13 +116,14 @@ MonoBehaviour:
   FinalDeadEvent:
     m_PersistentCalls:
       m_Calls: []
+  _enemyHp: {fileID: 4060941461694562067, guid: 57ec6656980528b448317c26ad002a7d, type: 3}
   _enemystats: {fileID: 11400000, guid: 983950a3f61964f469190bf8fe034381, type: 2}
   EnemyAttackEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2599422353613211536}
         m_TargetAssemblyTypeName: DivisionAttack, Assembly-CSharp
-        m_MethodName: DivisionPhase1
+        m_MethodName: DivisionAttackStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
