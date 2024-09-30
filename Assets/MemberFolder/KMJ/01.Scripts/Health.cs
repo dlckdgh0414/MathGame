@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
     {
         if(Hp == zeroHp)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
     private void Update()

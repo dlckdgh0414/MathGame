@@ -19,6 +19,15 @@ public class Enemy : EnemySetting
         HelathCompo.Hp = _enemystats.Hp;
     }
 
+    private void Update()
+    {
+        if(HelathCompo.Hp <= 0)
+        {
+            GameManager.Instance.isDead = true;
+            GameManager.Instance.OnBattleEnd?.Invoke();
+        }
+    }
+
     public void GetHit()
     {
         StateMachine.ChangeState(EnemyStateEnum.Hit);
