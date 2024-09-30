@@ -15,7 +15,8 @@ public class EndButton : MonoBehaviour
     public void ClickContinue()
     {
         GameObject.Find("Player").TryGetComponent(out Health health);
-        health.Hp = 100;    
+        health.Hp = 100;
+        GameManager.Instance.BattleStart();
         gameObject.SetActive(false);
     }
 
