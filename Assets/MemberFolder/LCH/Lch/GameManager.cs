@@ -154,11 +154,6 @@ public class GameManager : MonoBehaviour
     {
         Instantiate(_enemyPrefab[cut], new Vector3(-0.02f, 3.21f, 0), Quaternion.identity);
 
-        if(_enemy._enemystats.EnemyName == EnemyStateEnum.Multiplication)
-        {
-            _enemy.gameObject.transform.rotation = Quaternion.Euler(0, 0, 45);
-        }
-
         state = TrunState.playerTurn;
         _player = GameObject.Find("Player").GetComponent<Health>();
         _enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
@@ -201,6 +196,7 @@ public class GameManager : MonoBehaviour
     {
         if (state != TrunState.playerTurn)
         {
+            _itemBag.SetActive(false);
             return;
         }
 
