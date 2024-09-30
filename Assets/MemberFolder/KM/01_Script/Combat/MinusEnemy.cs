@@ -39,5 +39,7 @@ public class MinusEnemy : MonoBehaviour
 
             yield return new WaitForSeconds(enemyStat.AttackDuration / Count);
         }
+
+        GameManager.Instance._EnemyTrunEnd = true;
     }
 }
