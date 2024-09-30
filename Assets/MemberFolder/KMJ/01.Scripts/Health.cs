@@ -16,10 +16,6 @@ public class Health : MonoBehaviour
 
     private void Die(float zeroHp)
     {
-        if(Hp == zeroHp)
-        {
-            Destroy(gameObject);
-        }
     }
     private void Update()
     {

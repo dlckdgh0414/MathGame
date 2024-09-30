@@ -15,14 +15,16 @@ public class TestPlayer : MonoBehaviour
     private void Update()
     {
         Debug.Log($"{_health.Hp}");
+        PlayerDie();
     }
 
     public void PlayerDie()
     {
-        if(_health.Hp == 0)
+        if(_health.Hp <= 0)
         {
+            GameObject.FindWithTag("Enemy").SetActive(false);
+            gameObject.SetActive(false);
             _endUI.SetActive(true);
-            gameObject.SetActive(true);
         }
     }
 }
