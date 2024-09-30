@@ -6,7 +6,7 @@ public class ProbelmsReader : MonoBehaviour
 {
     const string URL = "https://docs.google.com/spreadsheets/d/1dUTpj2FoPiGo1JKVeHw8iyc3zGqvFQukfNoA8TDTl6c/export?format=tsv&range=A2:F    ";
     [SerializeField] private MathProblemSO _mathProblemSO;
-    public bool _isComplete { get; set; } = false;
+    public static bool _isComplete;
 
     private IEnumerator Start()
     {
