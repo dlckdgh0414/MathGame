@@ -14,7 +14,7 @@ public class TitleButton : MonoBehaviour
 
     private void Awake()
     {
-       // _transition.OnSceneTransition += SelectEnter;
+      // _transition.OnSceneTransition += SelectEnter;
     }
 
     private void Start()

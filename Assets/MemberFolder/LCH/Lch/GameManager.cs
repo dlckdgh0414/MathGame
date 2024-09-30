@@ -31,11 +31,12 @@ public class GameManager : MonoBehaviour
     public List<GameObject> _itemList = new List<GameObject>();
     private EnemyStatsSo _currentEnemy;
     [SerializeField] private GameObject _problemUI;
-    private GameObject _player;
+    private Health _player;
     private Enemy _enemy;
     public bool _isFinish;
     public bool _EnemyTrunEnd = false;
     private bool _isOpen;
+    private bool _isEndGame;
     private static int _enemyCount = 0;
     [SerializeField] private GameObject _itemBag;
 
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void HandleBattleEnd()
-    { 
+    {
         state = TrunState.win;
         _itemList[_randomInt].SetActive(true);
         _randomInt = UnityEngine.Random.Range(0, _itemCount);
@@ -65,13 +66,13 @@ public class GameManager : MonoBehaviour
     {
         state = TrunState.playerTurn;
         _EnemyTrunEnd = false;
-        
+
     }
 
     public void HandleAttackStart()
     {
         Debug.Log(_enemy._enemystats.EnemyName);
-        switch (_enemy._enemystats.EnemyName)   
+        switch (_enemy._enemystats.EnemyName)
         {
             case EnemyStateEnum.plus:
                 Debug.Log("Enemy State: plus");
@@ -124,14 +125,13 @@ public class GameManager : MonoBehaviour
 
         state = TrunState.start;
 
-       _itemCount = _itemBag.transform.childCount;
+        _itemCount = _itemBag.transform.childCount;
         _randomInt = UnityEngine.Random.Range(0, _itemCount);
 
     }
 
     private void Start()
     {
-        _player = GameObject.Find("Player");
         _isOpen = false;
         state = TrunState.playerTurn;
 
@@ -150,10 +150,11 @@ public class GameManager : MonoBehaviour
 
     public void BattleStart()
     {
-       Instantiate(_enemyPrefab[cut], new Vector3(-0.02f, 3.21f, 0), Quaternion.identity);
+        Instantiate(_enemyPrefab[cut], new Vector3(-0.02f, 3.21f, 0), Quaternion.identity);
 
         state = TrunState.playerTurn;
-        _enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>(); 
+        _player = GameObject.Find("Player").GetComponent<Health>();
+        _enemy = GameObject.FindWithTag("Enemy").GetComponent<Enemy>();
     }
 
     private void EnemyDie()
@@ -177,16 +178,16 @@ public class GameManager : MonoBehaviour
 
     public void PlayerAttackCheck()
     {
-        if (_isFinish) 
+        if (_isFinish)
         {
-            PlayerAttack(); 
+            PlayerAttack();
         }
     }
 
     public void PlayerAttack()
     {
         _isFinish = false;
-       OnEnemyAttackStart?.Invoke();
+        OnEnemyAttackStart?.Invoke();
     }
 
     public void PlayerItemButton()
@@ -201,13 +202,6 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDie()
     {
-        _player.TryGetComponent(out Health health);
-
-        if(health.Hp <= 0)
-        {
-            _player.SetActive(false);
-            _EndUI.SetActive(true);
-        }
     }
 
     private void GetItem()
@@ -244,6 +238,6 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         PlayerDie();
-       PlayerAttackCheck();
+        PlayerAttackCheck();
     }
 }

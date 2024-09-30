@@ -5,14 +5,24 @@ using UnityEngine;
 public class TestPlayer : MonoBehaviour
 {
 	private Health _health;
-
+    [SerializeField] private GameObject _endUI;
     private void Awake()
     {
+        _endUI.SetActive(false); 
         _health = GetComponent<Health>();
     }
 
     private void Update()
     {
         Debug.Log($"{_health.Hp}");
+    }
+
+    public void PlayerDie()
+    {
+        if(_health.Hp == 0)
+        {
+            _endUI.SetActive(true);
+            gameObject.SetActive(true);
+        }
     }
 }
