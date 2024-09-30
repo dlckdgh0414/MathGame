@@ -53,12 +53,12 @@ public class GameManager : MonoBehaviour
     private void HandleBattleEnd()
     { 
         state = TrunState.win;
-        isDead = false;
         _itemList[_randomInt].SetActive(true);
         _randomInt = UnityEngine.Random.Range(0, _itemCount);
         _isFinish = false;
         isDead = false;
         cut += 1;
+        BattleStart();
     }
 
     private void HandlAttackEnd()
