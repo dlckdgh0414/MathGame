@@ -13,8 +13,8 @@ public class TitleButton : MonoBehaviour
     [SerializeField] private ScreenTransition _transition;
 
     private void Awake()
-    {
-       // _transition.OnSceneTransition += SelectEnter;
+    {   
+      // _transition.OnSceneTransition += SelectEnter;
     }
 
     private void Start()
