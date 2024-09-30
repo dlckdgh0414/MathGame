@@ -11,6 +11,11 @@ public class SelectMathButton : MonoBehaviour
     public static float _damage;
     private GameObject _enemy;
 
+    private AudioSource _collect;
+    private void Awake()
+    {
+        _collect = GameObject.Find("PigutSound").GetComponent<AudioSource>();
+    }
 
     public void SelectCollect()
     {
@@ -38,6 +43,8 @@ public class SelectMathButton : MonoBehaviour
             Debug.Log("Finished");
             _mathProblem.SetActive(false);
             GameManager.Instance.PlayerAttackCheck();
+
+            _collect.Play();
         }
 
         else if(_isGuess == false)

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8261056810229632141}
   - component: {fileID: -2679144531956790679}
   - component: {fileID: -1410286799822219604}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Minus2
   m_TagString: Minus2
   m_Icon: {fileID: 0}
@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 5
+  _lazer: {fileID: 0}
 --- !u!50 &-1410286799822219604
 Rigidbody2D:
   serializedVersion: 4
