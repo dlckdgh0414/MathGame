@@ -34,8 +34,8 @@ public class MainTxt : MonoBehaviour
     public void ClickThirdButton()
     {
         _manager.SetActive(true);
-        GameManager.Instance.cut = 2;
         _player.SetActive(true);
+        GameManager.Instance.cut = 2;
         _gameScene.SetActive(true);
         gameObject.SetActive(false);
     }
@@ -43,8 +43,8 @@ public class MainTxt : MonoBehaviour
     public void ClickFourthButton()
     {
         _manager.SetActive(true);
-        GameManager.Instance.cut = 3;
         _player.SetActive(true);
+        GameManager.Instance.cut = 3;
         _gameScene.SetActive(true);
         gameObject.SetActive(false);
     }
@@ -52,8 +52,8 @@ public class MainTxt : MonoBehaviour
     public void ClickFifthButton()
     {
         _manager.SetActive(true);
-        GameManager.Instance.cut = 4;
         _player.SetActive(true);
+        GameManager.Instance.cut = 4;
         _gameScene.SetActive(true);
         gameObject.SetActive(false);
     }
