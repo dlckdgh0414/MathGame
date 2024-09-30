@@ -11,8 +11,6 @@ public class Lazer : MonoBehaviour
     private SpriteRenderer _lazerSprite;
     private SpriteRenderer _lazerSpriteex;
     private Sequence seq;
-                 
-    public GameObject player;
 
     public void ShotExpolmeArr(Transform[] pos, Quaternion[] rot, Transform root)
     {

@@ -12,6 +12,11 @@ GameObject:
   - component: {fileID: 4465171419551620241}
   - component: {fileID: 8498800982209074673}
   - component: {fileID: 9181909339864860621}
+<<<<<<< Updated upstream
+=======
+  - component: {fileID: 6755452831859198054}
+  - component: {fileID: 5389926032073325680}
+>>>>>>> Stashed changes
   m_Layer: 5
   m_Name: MinusEnemy
   m_TagString: Enemy
@@ -90,3 +95,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 8261056810229632141, guid: 3dd3cfb2c23549e459f641808e42e93b, type: 3}
   enemyStat: {fileID: 11400000, guid: ad6912df75d6f084e90ffc1ed728e39b, type: 2}
+<<<<<<< Updated upstream
+=======
+--- !u!114 &6755452831859198054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279006531859403346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6fc7f14758bf8043a8373a0022a0573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FinalDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _enemystats: {fileID: 11400000, guid: ad6912df75d6f084e90ffc1ed728e39b, type: 2}
+  EnemyAttackEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5389926032073325680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279006531859403346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8446193a1d5bc49af459ed6548ac65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Hp>k__BackingField: 0
+>>>>>>> Stashed changes

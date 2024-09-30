@@ -3,21 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class DivisionAttack : MonoBehaviour
 {
     private int Count;
     private Transform[] _pushZone = new Transform[3];
 
-    public Pooling enemy;
-    public Lazer lazer;
+    private Pooling enemy;
+    private Lazer _lazer;
     public EnemyStatsSo enemyStat;
 
     private Transform _playerTrm;
     private Pooling[] _division;
     private bool isChase = false;
 
-    [SerializeField] private float _duration = 5f;
+    private float _duration = 5f;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class DivisionAttack : MonoBehaviour
             _pushZone[i] = GameObject.Find($"PrefabPush{i + 1}").transform;
         }
 
+        _lazer = GetComponent<Lazer>();
         _playerTrm = GameObject.Find("Player").transform;
     }
 
@@ -115,14 +117,14 @@ public class DivisionAttack : MonoBehaviour
             {
                 yield return new WaitForSeconds(1f);
 
-                lazer.ShotExpolmeArr(
+                _lazer.ShotExpolmeArr(
                     new[] { _division[i].transform },
                     new[] { _pushZone[i].rotation },
                     _division[i].transform);
 
                 yield return new WaitForSeconds(0.6f);
 
-                lazer.ShootLazerArr(
+                _lazer.ShootLazerArr(
                     new[] { _division[i].transform },
                     new[] { _pushZone[i].rotation },
                     _division[i].transform);
@@ -143,14 +145,14 @@ public class DivisionAttack : MonoBehaviour
 
     private IEnumerator LazerShootingRoutine(int rand, Pooling enemy)
     {
-        lazer.ShotExpolmeArr(
+        _lazer.ShotExpolmeArr(
             new[] { enemy.transform },
             new[] { _pushZone[rand].rotation }, 
             enemy.transform);
 
         yield return new WaitForSeconds(0.6f);
 
-        lazer.ShootLazerArr(
+        _lazer.ShootLazerArr(
             new[] { enemy.transform },
             new[] { _pushZone[rand].rotation }, 
             enemy.transform);

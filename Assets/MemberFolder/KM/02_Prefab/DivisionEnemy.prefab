@@ -12,6 +12,12 @@ GameObject:
   - component: {fileID: 8011356860608983510}
   - component: {fileID: 8522308860923636557}
   - component: {fileID: 2180269012925230850}
+<<<<<<< Updated upstream
+=======
+  - component: {fileID: 392974882579613892}
+  - component: {fileID: 4268560439333261306}
+  - component: {fileID: 5369723696772294474}
+>>>>>>> Stashed changes
   m_Layer: 5
   m_Name: DivisionEnemy
   m_TagString: Enemy
@@ -92,3 +98,65 @@ MonoBehaviour:
   lazer: {fileID: 0}
   enemyStat: {fileID: 11400000, guid: 1e77bb37d12bebd4f9477f97dcb18115, type: 2}
   _duration: 5
+<<<<<<< Updated upstream
+=======
+--- !u!114 &392974882579613892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791083957407892183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6fc7f14758bf8043a8373a0022a0573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FinalDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _enemystats: {fileID: 11400000, guid: 983950a3f61964f469190bf8fe034381, type: 2}
+  EnemyAttackEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2180269012925230850}
+        m_TargetAssemblyTypeName: DivisionAttack, Assembly-CSharp
+        m_MethodName: DivisionPhase1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4268560439333261306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791083957407892183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4825fb6bb3166814b9e3fd5c13d7ef8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lazer: {fileID: 0}
+  lazerex: {fileID: 0}
+  player: {fileID: 0}
+--- !u!114 &5369723696772294474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791083957407892183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8446193a1d5bc49af459ed6548ac65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Hp>k__BackingField: 0
+>>>>>>> Stashed changes
