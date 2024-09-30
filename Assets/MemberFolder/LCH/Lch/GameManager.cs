@@ -58,7 +58,6 @@ public class GameManager : MonoBehaviour
         _randomInt = UnityEngine.Random.Range(0, _itemCount);
         _isFinish = false;
         isDead = false;
-        cut += 1;
         BattleStart();
     }
 
@@ -135,8 +134,6 @@ public class GameManager : MonoBehaviour
         state = TrunState.playerTurn;
 
         print(_randomInt);
-
-        Instantiate(_enemyPrefab[cut], new Vector3(-0.02f, 3.21f, 0), Quaternion.identity);
 
         Debug.Log(_enemyPrefab[cut]);
 
