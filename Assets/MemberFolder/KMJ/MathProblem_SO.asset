@@ -12,21 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43a4364e961d8124a8c3f675be8d37a1, type: 3}
   m_Name: MathProblem_SO
   m_EditorClassIdentifier: 
-  Problem:
-  - 1
-  - 2
-  Choice1:
-  - 1
-  - 1
-  Choice2:
-  - 2
-  - 2
-  Choice3:
-  - 3
-  - 3
-  Choice4:
-  - 4
-  - 4
-  ResultNumber:
-  - "1\r"
-  - 3
+  Problem: []
+  Choice1: []
+  Choice2: []
+  Choice3: []
+  Choice4: []
+  ResultNumber: []

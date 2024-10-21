@@ -16,6 +16,11 @@ public class Enemy : EnemySetting
 
     public UnityEvent EnemyAttackEvent; //Enemy에 맞는 공격 넣기
 
+    private void Awake()
+    {
+        _enemyHp = GameObject.Find("EnemyBar").GetComponent<Image>();
+    }
+
     private void Start()
     {
         HelathCompo.Hp = _enemystats.Hp;

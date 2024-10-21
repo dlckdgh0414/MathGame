@@ -1,15 +1,20 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class ProbelmsReader : MonoBehaviour
 {
-    const string URL = "https://docs.google.com/spreadsheets/d/1dUTpj2FoPiGo1JKVeHw8iyc3zGqvFQukfNoA8TDTl6c/export?format=tsv&range=A2:F    ";
+    const string URL = "https://docs.google.com/spreadsheets/d/1dUTpj2FoPiGo1JKVeHw8iyc3zGqvFQukfNoA8TDTl6c/export?format=tsv&range=A2:F&gid=0";
     [SerializeField] private MathProblemSO _mathProblemSO;
     public static bool _isComplete;
 
+    public Action OnDataLoaded;
+
     private IEnumerator Start()
     {
+        DontDestroyOnLoad(this);
+
         UnityWebRequest www = UnityWebRequest.Get(URL);
         yield return www.SendWebRequest();
 
@@ -20,7 +25,9 @@ public class ProbelmsReader : MonoBehaviour
         else
         {
             string data = www.downloadHandler.text;
-            ParseTSVData(data);
+            print(data);
+            StartCoroutine(ParseTSVData(data));
+            OnDataLoaded?.Invoke();
         }
     }
 
@@ -33,9 +40,8 @@ public class ProbelmsReader : MonoBehaviour
         _mathProblemSO.Choice4.Clear();
         _mathProblemSO.ResultNumber.Clear();
     }
-    void ParseTSVData(string data)
+    private IEnumerator ParseTSVData(string data)
     {
-        // TSV 데이터를 줄 단위로 나누기
         string[] rows = data.Split('\n');
 
         foreach (string row in rows)
@@ -53,8 +59,7 @@ public class ProbelmsReader : MonoBehaviour
 
             _isComplete = true;
 
+            yield return null;  // 한 프레임 대기
         }
     }
-
-    
 }
